@@ -16,71 +16,64 @@ import { Counter, useTilt } from "./hooks";
 
 /* ---------------- HERO ---------------- */
 export function Hero() {
-  const bgRef = useRef<HTMLDivElement>(null);
-  useEffect(() => {
-    const onScroll = () => {
-      if (bgRef.current) bgRef.current.style.transform = `translate3d(0, ${window.scrollY * 0.25}px, 0)`;
-    };
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
   return (
-    <section id="home" className="relative overflow-hidden bg-ink text-white">
-      <div ref={bgRef} className="absolute inset-0 will-change-transform">
+    <section id="home" className="relative overflow-hidden bg-ink text-white min-h-[92vh] sm:min-h-[88vh] flex flex-col justify-center">
+      {/* Background Cinematic Video - Optimized for smooth 60fps playback and high brightness */}
+      <div className="absolute inset-0">
         <video
           src="/Cinematic_second_dental_clin.webm"
           autoPlay
           loop
           muted
           playsInline
+          preload="auto"
           poster={hero}
-          className="w-full h-full object-cover opacity-55 scale-105"
+          className="w-full h-full object-cover opacity-90 sm:opacity-95"
         />
-        {/* Layered dark gradients for maximum text readability on mobile and desktop */}
-        <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/80 sm:via-ink/70 to-ink/30 sm:to-ink/20" />
-        <div className="absolute inset-0 bg-gradient-to-t from-ink via-transparent to-ink/40" />
-        <div className="absolute inset-0 bg-ink/20 backdrop-blur-[0.5px]" />
+        {/* Soft left-to-right gradient: darkens text area on the left for crisp legibility, leaves video on the right bright and natural */}
+        <div className="absolute inset-0 bg-gradient-to-r from-ink/95 sm:from-ink/90 via-ink/75 sm:via-ink/60 to-transparent sm:to-black/10" />
+        {/* Subtle bottom gradient for smooth transition into the stats strip */}
+        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-ink via-ink/40 to-transparent pointer-events-none" />
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 pt-20 sm:pt-28 md:pt-36 pb-20 sm:pb-28 w-full">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 pt-24 sm:pt-32 md:pt-40 pb-24 sm:pb-32 w-full z-10">
         <div className="max-w-3xl animate-reveal">
-          <div className="inline-flex items-center gap-2.5 bg-white/10 backdrop-blur-md border border-white/15 rounded-full px-4 py-1.5 text-xs sm:text-sm text-gold mb-6 shadow-sm">
+          <div className="inline-flex items-center gap-2.5 bg-gradient-to-r from-gold/20 via-white/10 to-transparent backdrop-blur-md border border-gold/40 rounded-full px-4 sm:px-5 py-2 text-xs sm:text-sm text-gold mb-6 sm:mb-8 shadow-lg shadow-black/30">
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-gold opacity-75" />
               <span className="relative inline-flex rounded-full h-2 w-2 bg-gold" />
             </span>
-            <span className="font-medium tracking-wide">Excellence in Dentistry • Tukkuguda</span>
+            <span className="font-semibold tracking-wide uppercase text-[11px] sm:text-xs">Excellence in Dentistry • Tukkuguda</span>
           </div>
 
-          <h1 className="font-display font-medium text-4xl sm:text-5xl md:text-6xl xl:text-7xl leading-[1.08] sm:leading-[1.04] text-white">
+          <h1 className="font-display font-medium text-4xl sm:text-6xl md:text-7xl xl:text-[5.2rem] leading-[1.08] sm:leading-[1.03] text-white drop-shadow-md">
             Perfecting harmony <br className="hidden sm:block" />
             and confidence in <br className="hidden sm:block" />
             every radiant <span className="italic-accent text-gold">smile.</span>
           </h1>
 
-          <p className="mt-6 sm:mt-7 max-w-xl text-white/80 text-base sm:text-lg md:text-xl leading-relaxed font-light">
+          <p className="mt-6 sm:mt-8 max-w-xl text-white/85 text-base sm:text-lg md:text-xl leading-relaxed font-light drop-shadow">
             Advanced, specialist-driven dental care in Tukkuguda — where craftsmanship meets modern technology to deliver results that last.
           </p>
 
-          <div className="mt-8 sm:mt-10 flex flex-wrap items-center gap-3 sm:gap-4">
-            <Link to="/contact" className="group inline-flex items-center justify-center gap-2 bg-gradient-gold text-white font-semibold px-7 sm:px-8 py-3.5 rounded-full shadow-gold hover:scale-[1.03] transition-transform text-sm sm:text-base w-full sm:w-auto">
+          <div className="mt-9 sm:mt-11 flex flex-wrap items-center gap-3.5 sm:gap-5">
+            <Link to="/contact" className="group inline-flex items-center justify-center gap-2.5 bg-gradient-gold text-white font-semibold px-8 sm:px-9 py-4 rounded-full shadow-lg shadow-gold/30 hover:shadow-gold/50 hover:scale-[1.03] transition-all duration-300 text-sm sm:text-base w-full sm:w-auto">
               <Calendar className="w-4 sm:w-5 h-4 sm:h-5" /> Request an Appointment
               <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Link>
-            <Link to="/services" className="inline-flex items-center justify-center gap-2 text-white/95 bg-white/5 backdrop-blur-sm border border-white/25 hover:border-gold hover:text-gold hover:bg-white/10 font-medium px-6 sm:px-7 py-3.5 rounded-full transition-all text-sm sm:text-base w-full sm:w-auto">
+            <Link to="/services" className="inline-flex items-center justify-center gap-2.5 text-white/95 bg-white/10 backdrop-blur-md border border-white/30 hover:border-gold hover:text-gold hover:bg-white/15 font-medium px-7 sm:px-8 py-4 rounded-full transition-all duration-300 text-sm sm:text-base w-full sm:w-auto shadow-sm">
               Explore Services
             </Link>
           </div>
         </div>
 
         {/* Floating badge showing live video background */}
-        <div className="mt-12 sm:mt-0 sm:absolute sm:bottom-6 sm:right-6 inline-flex items-center gap-2.5 bg-ink/80 backdrop-blur-md border border-white/15 rounded-full px-4 py-2 text-xs sm:text-sm text-white/90 shadow-lg">
+        <div className="mt-14 sm:mt-0 sm:absolute sm:bottom-6 sm:right-6 inline-flex items-center gap-2.5 bg-ink/75 hover:bg-ink/90 backdrop-blur-md border border-white/20 rounded-full px-4 sm:px-5 py-2.5 text-xs sm:text-sm text-white/95 shadow-xl transition-all duration-300 group">
           <span className="relative flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-gold opacity-75" />
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-gold" />
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400" />
           </span>
-          <span className="font-medium tracking-wide">Inside Sri Shobh Dental • HD Cinematic Experience</span>
+          <span className="font-medium tracking-wide">Inside Sri Shobh Dental • <span className="text-gold font-semibold">HD Cinematic Tour</span></span>
         </div>
       </div>
 
