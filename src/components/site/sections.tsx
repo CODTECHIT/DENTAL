@@ -69,14 +69,7 @@ export function Hero() {
             </div>
           </div>
 
-          {/* Floating badge showing live video background - cleanly positioned on large screens only */}
-          <div className="hidden lg:inline-flex absolute bottom-4 right-6 items-center gap-2.5 bg-ink/80 hover:bg-ink backdrop-blur-md border border-white/20 rounded-full px-5 py-2.5 text-sm text-white/95 shadow-xl transition-all duration-300 group">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400" />
-            </span>
-            <span className="font-medium tracking-wide">Inside Sri Shobh Dental • <span className="text-gold font-semibold">HD Cinematic Tour</span></span>
-          </div>
+
         </div>
       </div>
 
@@ -364,7 +357,7 @@ function StripItem({ icon: Icon, title, body, href }: { icon: typeof Phone; titl
 
 /* ---------------- MARQUEE ---------------- */
 export function Marquee() {
-  const items = ["Painless Procedures","Sterile Environment","Latest Equipment","Certified Specialists","Family Friendly","Emergency Care","Transparent Pricing","Digital X-Rays"];
+  const items = ["Painless Procedures", "Sterile Environment", "Latest Equipment", "Certified Specialists", "Family Friendly", "Emergency Care", "Transparent Pricing", "Digital X-Rays"];
   const row = [...items, ...items];
   return (
     <div className="bg-ink text-white py-4 sm:py-5 overflow-hidden border-y border-gold/30">
