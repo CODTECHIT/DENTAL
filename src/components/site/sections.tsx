@@ -4,7 +4,6 @@ import {
   Phone, MessageCircle, Mail, MapPin, Calendar, ChevronRight, ArrowRight,
   ShieldCheck, Sparkles, HeartPulse, Award, Clock, CheckCircle2, Star, Quote,
 } from "lucide-react";
-import hero from "@/assets/hero.jpg";
 import clinic from "@/assets/clinic.jpg";
 import sImplant from "@/assets/s-implant.jpg";
 import sSmile from "@/assets/s-smile.jpg";
@@ -19,9 +18,9 @@ export function Hero() {
   return (
     <section id="home" className="relative bg-ink text-white">
       {/* 1. Hero Main Video Banner - Video is contained strictly within this banner */}
-      <div className="relative overflow-hidden min-h-[85vh] lg:min-h-[88vh] flex items-center">
+      <div className="relative overflow-hidden min-h-[75vh] sm:min-h-[80vh] lg:min-h-[88vh] flex items-center">
         {/* Background Cinematic Video */}
-        <div className="absolute inset-0">
+        <div className="absolute inset-0 bg-ink">
           <video
             src="/Cinematic_second_dental_clin.webm"
             autoPlay
@@ -29,18 +28,17 @@ export function Hero() {
             muted
             playsInline
             preload="auto"
-            poster={hero}
             className="w-full h-full object-cover object-center sm:object-[65%_center]"
           />
-          {/* Left-focused dark gradient: 100% dark on left for text readability, fades out before right side so video stays bright & vivid */}
-          <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/90 md:via-ink/75 via-45% to-transparent to-65%" />
+          {/* Mobile: even dark overlay for 100% text legibility. Desktop: left-focused gradient so video stays bright & vivid on right */}
+          <div className="absolute inset-0 bg-gradient-to-b from-ink/90 via-ink/80 to-ink/90 lg:bg-gradient-to-r lg:from-ink lg:via-ink/90 lg:via-45% lg:to-transparent lg:to-65%" />
           {/* Top & bottom edge blending */}
           <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-ink/60 to-transparent pointer-events-none" />
           <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-ink to-transparent pointer-events-none" />
         </div>
 
         {/* Hero Content */}
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 py-20 lg:py-28 w-full z-10">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 py-16 sm:py-20 lg:py-28 w-full z-10">
           <div className="max-w-2xl lg:max-w-3xl animate-reveal">
             <div className="inline-flex items-center gap-2.5 bg-ink/70 backdrop-blur-md border border-gold/40 rounded-full px-4 sm:px-5 py-2 text-xs sm:text-sm text-gold mb-6 sm:mb-8 shadow-lg">
               <span className="relative flex h-2 w-2">
@@ -56,23 +54,23 @@ export function Hero() {
               every radiant <span className="italic-accent text-gold">smile.</span>
             </h1>
 
-            <p className="mt-6 sm:mt-8 max-w-xl text-white/90 text-base sm:text-lg md:text-xl leading-relaxed font-light drop-shadow">
+            <p className="mt-5 sm:mt-8 max-w-xl text-white/90 text-sm sm:text-lg md:text-xl leading-relaxed font-light drop-shadow">
               Advanced, specialist-driven dental care in Tukkuguda — where craftsmanship meets modern technology to deliver results that last.
             </p>
 
-            <div className="mt-9 sm:mt-11 flex flex-wrap items-center gap-3.5 sm:gap-5">
-              <Link to="/contact" className="group inline-flex items-center justify-center gap-2.5 bg-gradient-gold text-white font-semibold px-8 sm:px-9 py-4 rounded-full shadow-lg shadow-gold/30 hover:shadow-gold/50 hover:scale-[1.03] transition-all duration-300 text-sm sm:text-base w-full sm:w-auto">
-                <Calendar className="w-4 sm:w-5 h-4 sm:h-5" /> Request an Appointment
-                <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            <div className="mt-8 sm:mt-10 grid grid-cols-1 sm:flex sm:flex-wrap items-center gap-3 sm:gap-5 max-w-sm sm:max-w-none">
+              <Link to="/contact" className="group inline-flex items-center justify-center gap-2 bg-gradient-gold text-white font-semibold px-7 sm:px-9 py-3.5 sm:py-4 rounded-full shadow-lg shadow-gold/30 hover:shadow-gold/50 hover:scale-[1.03] transition-all duration-300 text-sm sm:text-base w-full sm:w-auto">
+                <Calendar className="w-4 sm:w-5 h-4 sm:h-5 shrink-0" /> <span>Request an Appointment</span>
+                <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform shrink-0" />
               </Link>
-              <Link to="/services" className="inline-flex items-center justify-center gap-2.5 text-white bg-white/10 backdrop-blur-md border border-white/30 hover:border-gold hover:text-gold hover:bg-white/15 font-medium px-7 sm:px-8 py-4 rounded-full transition-all duration-300 text-sm sm:text-base w-full sm:w-auto shadow-sm">
+              <Link to="/services" className="inline-flex items-center justify-center gap-2 text-white bg-white/10 backdrop-blur-md border border-white/25 hover:border-gold hover:text-gold hover:bg-white/15 font-medium px-6 sm:px-8 py-3.5 sm:py-4 rounded-full transition-all duration-300 text-sm sm:text-base w-full sm:w-auto shadow-sm">
                 Explore Services
               </Link>
             </div>
           </div>
 
-          {/* Floating badge showing live video background - positioned inside banner */}
-          <div className="mt-12 lg:mt-0 lg:absolute lg:bottom-4 lg:right-6 inline-flex items-center gap-2.5 bg-ink/80 hover:bg-ink backdrop-blur-md border border-white/20 rounded-full px-4 sm:px-5 py-2.5 text-xs sm:text-sm text-white/95 shadow-xl transition-all duration-300 group">
+          {/* Floating badge showing live video background - cleanly positioned on large screens only */}
+          <div className="hidden lg:inline-flex absolute bottom-4 right-6 items-center gap-2.5 bg-ink/80 hover:bg-ink backdrop-blur-md border border-white/20 rounded-full px-5 py-2.5 text-sm text-white/95 shadow-xl transition-all duration-300 group">
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
               <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400" />
