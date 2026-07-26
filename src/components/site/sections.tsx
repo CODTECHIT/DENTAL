@@ -28,30 +28,73 @@ export function Hero() {
   return (
     <section id="home" className="relative overflow-hidden bg-ink text-white">
       <div ref={bgRef} className="absolute inset-0 will-change-transform">
-        <img src={hero} alt="" className="w-full h-full object-cover opacity-40 scale-110" />
-        <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/85 to-ink/40" />
+        <img src={hero} alt="" className="w-full h-full object-cover opacity-30 scale-110" />
+        <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/90 lg:via-ink/80 to-ink/60" />
         <div className="absolute inset-0 bg-gradient-to-t from-ink via-transparent to-transparent" />
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-4 pt-16 md:pt-28 pb-16 md:pb-24">
-        <div className="max-w-3xl animate-reveal">
-          <div className="eyebrow text-gold">Excellence in Dentistry</div>
-          <h1 className="mt-5 font-display font-medium text-4xl sm:text-5xl md:text-7xl leading-[1.02] text-white">
-            Perfecting harmony <br className="hidden md:block" />
-            and confidence in <br className="hidden md:block" />
-            every radiant <span className="italic-accent text-gold">smile.</span>
-          </h1>
-          <p className="mt-6 max-w-lg text-white/70 text-base md:text-lg leading-relaxed">
-            Advanced, specialist-driven dental care in Tukkuguda — where craftsmanship meets modern technology to deliver results that last.
-          </p>
-          <div className="mt-8 flex flex-wrap items-center gap-4">
-            <Link to="/contact" className="group inline-flex items-center gap-2 bg-gradient-gold text-white font-semibold px-8 py-3.5 rounded-full shadow-gold hover:scale-[1.03] transition-transform">
-              <Calendar className="w-4 h-4" /> Request an Appointment
-              <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </Link>
-            <Link to="/services" className="inline-flex items-center gap-2 text-white/90 border border-white/25 hover:border-gold hover:text-gold font-medium px-6 py-3 rounded-full transition-colors">
-              Explore Services
-            </Link>
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 pt-12 sm:pt-16 md:pt-24 lg:pt-28 pb-16 md:pb-24">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+          {/* Left Column - Typography & CTAs */}
+          <div className="lg:col-span-7 animate-reveal">
+            <div className="eyebrow text-gold">Excellence in Dentistry</div>
+            <h1 className="mt-4 sm:mt-5 font-display font-medium text-4xl sm:text-5xl md:text-6xl xl:text-7xl leading-[1.05] sm:leading-[1.02] text-white">
+              Perfecting harmony <br className="hidden sm:block" />
+              and confidence in <br className="hidden sm:block" />
+              every radiant <span className="italic-accent text-gold">smile.</span>
+            </h1>
+            <p className="mt-5 sm:mt-6 max-w-xl text-white/75 text-base sm:text-lg leading-relaxed">
+              Advanced, specialist-driven dental care in Tukkuguda — where craftsmanship meets modern technology to deliver results that last.
+            </p>
+            <div className="mt-8 flex flex-wrap items-center gap-3.5 sm:gap-4">
+              <Link to="/contact" className="group inline-flex items-center justify-center gap-2 bg-gradient-gold text-white font-semibold px-7 sm:px-8 py-3 sm:py-3.5 rounded-full shadow-gold hover:scale-[1.03] transition-transform text-sm sm:text-base w-full sm:w-auto">
+                <Calendar className="w-4 h-4" /> Request an Appointment
+                <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </Link>
+              <Link to="/services" className="inline-flex items-center justify-center gap-2 text-white/90 border border-white/25 hover:border-gold hover:text-gold font-medium px-6 py-3 sm:py-3.5 rounded-full transition-colors text-sm sm:text-base w-full sm:w-auto">
+                Explore Services
+              </Link>
+            </div>
+          </div>
+
+          {/* Right Column - Cinematic Video Showcase */}
+          <div className="lg:col-span-5 animate-reveal mt-4 lg:mt-0">
+            <div className="relative group mx-auto max-w-lg lg:max-w-none">
+              {/* Subtle ambient glow behind card */}
+              <div className="absolute -inset-1 bg-gradient-to-r from-gold/30 via-gold/10 to-transparent rounded-[2rem] blur-xl opacity-75 group-hover:opacity-100 transition duration-700 pointer-events-none" />
+              
+              {/* Glassmorphic border frame */}
+              <div className="relative rounded-2xl sm:rounded-3xl border border-white/20 bg-white/[0.04] p-2 sm:p-3 backdrop-blur-md shadow-2xl shadow-black/80">
+                <div className="relative rounded-xl sm:rounded-2xl overflow-hidden bg-ink/90 aspect-video sm:aspect-[16/10] lg:aspect-[4/3]">
+                  <video
+                    src="/Cinematic_second_dental_clin.webm"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    poster={hero}
+                    className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
+                  />
+                  
+                  {/* Subtle dark gradient overlay at bottom for tag readability */}
+                  <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-ink/90 via-ink/40 to-transparent pointer-events-none" />
+
+                  {/* Floating badge inside video */}
+                  <div className="absolute bottom-3 sm:bottom-4 left-3 sm:left-4 right-3 sm:right-4 flex items-center justify-between bg-ink/85 backdrop-blur-md border border-white/15 rounded-xl px-3.5 sm:px-4 py-2 sm:py-2.5 text-xs sm:text-sm text-white/95 shadow-lg">
+                    <div className="flex items-center gap-2 sm:gap-2.5">
+                      <span className="relative flex h-2 sm:h-2.5 w-2 sm:w-2.5">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-gold opacity-75" />
+                        <span className="relative inline-flex rounded-full h-2 sm:h-2.5 w-2 sm:w-2.5 bg-gold" />
+                      </span>
+                      <span className="font-medium tracking-wide text-xs sm:text-sm">Inside Our Tukkuguda Clinic</span>
+                    </div>
+                    <span className="text-gold font-mono text-[10px] sm:text-xs tracking-wider uppercase px-2 py-0.5 rounded bg-gold/10 border border-gold/20">
+                      Cinematic Tour
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
