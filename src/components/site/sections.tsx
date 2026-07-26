@@ -28,13 +28,13 @@ export function Hero() {
             muted
             playsInline
             preload="auto"
-            className="w-full h-full object-cover object-center sm:object-[65%_center]"
+            className="w-full h-full object-cover object-[70%_center] sm:object-[65%_center] brightness-[1.08] contrast-[1.05]"
           />
-          {/* Mobile: even dark overlay for 100% text legibility. Desktop: left-focused gradient so video stays bright & vivid on right */}
-          <div className="absolute inset-0 bg-gradient-to-b from-ink/90 via-ink/80 to-ink/90 lg:bg-gradient-to-r lg:from-ink lg:via-ink/90 lg:via-45% lg:to-transparent lg:to-65%" />
-          {/* Top & bottom edge blending */}
-          <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-ink/60 to-transparent pointer-events-none" />
-          <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-ink to-transparent pointer-events-none" />
+          {/* Soft left-to-right fade: dark tint only behind text on left, fading to 100% transparent so video is fully visible, vivid & bright */}
+          <div className="absolute inset-0 bg-gradient-to-r from-ink/75 via-ink/40 to-transparent sm:from-ink/70 sm:via-ink/30 sm:to-transparent" />
+          {/* Subtle top & bottom edge blending without darkening video */}
+          <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-ink/40 to-transparent pointer-events-none" />
+          <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-ink/40 to-transparent pointer-events-none" />
         </div>
 
         {/* Hero Content */}
@@ -58,12 +58,12 @@ export function Hero() {
               Advanced, specialist-driven dental care in Tukkuguda — where craftsmanship meets modern technology to deliver results that last.
             </p>
 
-            <div className="mt-8 sm:mt-10 grid grid-cols-1 sm:flex sm:flex-wrap items-center gap-3 sm:gap-5 max-w-sm sm:max-w-none">
-              <Link to="/contact" className="group inline-flex items-center justify-center gap-2 bg-gradient-gold text-white font-semibold px-7 sm:px-9 py-3.5 sm:py-4 rounded-full shadow-lg shadow-gold/30 hover:shadow-gold/50 hover:scale-[1.03] transition-all duration-300 text-sm sm:text-base w-full sm:w-auto">
+            <div className="mt-7 sm:mt-10 flex flex-wrap items-center gap-3 sm:gap-5">
+              <Link to="/contact" className="group inline-flex items-center justify-center gap-2 bg-gradient-gold text-white font-semibold px-6 sm:px-9 py-3.5 sm:py-4 rounded-full shadow-lg shadow-gold/30 hover:shadow-gold/50 hover:scale-[1.03] transition-all duration-300 text-sm sm:text-base">
                 <Calendar className="w-4 sm:w-5 h-4 sm:h-5 shrink-0" /> <span>Request an Appointment</span>
                 <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform shrink-0" />
               </Link>
-              <Link to="/services" className="inline-flex items-center justify-center gap-2 text-white bg-white/10 backdrop-blur-md border border-white/25 hover:border-gold hover:text-gold hover:bg-white/15 font-medium px-6 sm:px-8 py-3.5 sm:py-4 rounded-full transition-all duration-300 text-sm sm:text-base w-full sm:w-auto shadow-sm">
+              <Link to="/services" className="inline-flex items-center justify-center gap-2 text-white bg-white/10 backdrop-blur-md border border-white/25 hover:border-gold hover:text-gold hover:bg-white/15 font-medium px-6 sm:px-8 py-3.5 sm:py-4 rounded-full transition-all duration-300 text-sm sm:text-base shadow-sm">
                 Explore Services
               </Link>
             </div>
