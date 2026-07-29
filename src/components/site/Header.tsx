@@ -35,13 +35,10 @@ export function Header() {
   return (
     <>
       <TopBar />
-      <header className={`sticky top-0 z-40 transition-all ${scrolled ? "bg-white/95 backdrop-blur shadow-soft" : "bg-white"}`}>
-        <div className="max-w-7xl mx-auto px-4 py-3 grid grid-cols-[1fr_auto_1fr] items-center gap-4 lg:flex lg:justify-between">
-          {/* Spacer for mobile to push logo to center */}
-          <div className="lg:hidden"></div>
-          
-          <Link to="/" className="flex items-center justify-center gap-3 min-w-0">
-            <img src="/logo.jpg" alt="Sri Shobh Dental Logo" className="h-16 sm:h-20 lg:h-24 w-auto object-contain shrink-0" />
+      <header className={`sticky top-0 z-40 transition-all rounded-b-2xl lg:rounded-b-3xl border-b-[3px] border-gold shadow-md ${scrolled ? "bg-white/95 backdrop-blur" : "bg-white"}`}>
+        <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+          <Link to="/" className="flex items-center justify-start gap-3 z-10">
+            <img src="/logo.jpg" alt="Sri Shobh Dental Logo" className="h-24 sm:h-28 lg:h-32 w-auto object-contain shrink-0" />
           </Link>
 
           <nav className="hidden lg:flex items-center gap-7">
@@ -61,8 +58,8 @@ export function Header() {
             <Link to="/contact" className="hidden sm:inline-flex items-center gap-2 bg-gradient-gold text-white font-medium text-sm px-5 py-2.5 rounded-full shadow-gold hover:scale-105 transition-transform">
               <Calendar className="w-4 h-4" /> Book Appointment
             </Link>
-            <button aria-label="Menu" onClick={() => setOpen(!open)} className="lg:hidden p-2 rounded-md border border-border">
-              {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            <button aria-label="Menu" onClick={() => setOpen(!open)} className="lg:hidden p-2.5 rounded-xl border-[2px] border-gold bg-ink text-gold hover:bg-ink/90 transition-colors shadow-sm flex items-center justify-center">
+              {open ? <X className="w-6 h-6 stroke-[2.5]" /> : <Menu className="w-6 h-6 stroke-[2.5]" />}
             </button>
           </div>
         </div>

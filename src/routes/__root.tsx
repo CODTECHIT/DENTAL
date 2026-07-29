@@ -8,7 +8,7 @@ import {
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
-import { useEffect, type ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { Header } from "@/components/site/Header";
@@ -87,12 +87,55 @@ function RootShell({ children }: { children: ReactNode }) {
   );
 }
 
+function OpeningAnimation() {
+  const [show, setShow] = useState(true);
+  const [animatingOut, setAnimatingOut] = useState(false);
+
+  useEffect(() => {
+    // Only show animation once per session to avoid annoying users
+    const hasSeen = sessionStorage.getItem("hasSeenOpeningAnimation");
+    if (hasSeen) {
+      setShow(false);
+      return;
+    }
+    sessionStorage.setItem("hasSeenOpeningAnimation", "true");
+
+    const timer1 = setTimeout(() => setAnimatingOut(true), 1500);
+    const timer2 = setTimeout(() => setShow(false), 2200);
+
+    return () => {
+      clearTimeout(timer1);
+      clearTimeout(timer2);
+    };
+  }, []);
+
+  if (!show) return null;
+
+  return (
+    <div
+      className={`fixed inset-0 z-[100] bg-background flex items-center justify-center transition-all duration-700 ease-in-out ${
+        animatingOut ? "opacity-0 scale-105 pointer-events-none" : "opacity-100 scale-100"
+      }`}
+    >
+      <div className="relative">
+        <div className="absolute inset-0 bg-gold/20 blur-3xl rounded-full animate-pulse"></div>
+        <img
+          src="/logo.jpg"
+          alt="Sri Shobh Dental"
+          className="relative h-32 sm:h-48 w-auto object-contain animate-reveal"
+        />
+      </div>
+    </div>
+  );
+}
+
 function SiteLayout() {
   useReveal();
   const pathname = useRouterState({ select: (s) => s.location.pathname });
   useEffect(() => { window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior }); }, [pathname]);
   return (
     <div className="min-h-screen bg-background overflow-x-hidden">
+      <OpeningAnimation />
       <ScrollProgress />
       <Header />
       <main>
