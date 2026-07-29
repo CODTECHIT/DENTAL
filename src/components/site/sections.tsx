@@ -2,14 +2,14 @@ import { useEffect, useRef, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import {
   Phone, MessageCircle, Mail, MapPin, Calendar, ChevronRight, ArrowRight,
-  ShieldCheck, Sparkles, HeartPulse, Award, Clock, CheckCircle2, Star, Quote,
+  ShieldCheck, Sparkles, HeartPulse, Award, Clock, CheckCircle2, Star, Quote, User
 } from "lucide-react";
 import clinic from "@/assets/clinic.jpg";
 import sImplant from "@/assets/s-implant.jpg";
 import sSmile from "@/assets/s-smile.jpg";
 import {
   PHONE, WHATSAPP, EMAIL, ADDRESS_FULL,
-  services, whyChoose, highlights, galleryImgs,
+  services, whyChoose, highlights, galleryImgs, specialists, GalleryItem
 } from "./data";
 import { Counter, useTilt } from "./hooks";
 
@@ -55,7 +55,7 @@ export function Hero() {
             </h1>
 
             <p className="mt-5 sm:mt-8 max-w-xl text-white/90 text-sm sm:text-lg md:text-xl leading-relaxed font-light drop-shadow">
-              Advanced, specialist-driven dental care in Tukkuguda — where craftsmanship meets modern technology to deliver results that last.
+              Advanced, specialist-driven dental care in Tukkuguda  where craftsmanship meets modern technology to deliver results that last.
             </p>
 
             <div className="mt-7 sm:mt-10 flex flex-wrap items-center gap-3 sm:gap-5">
@@ -80,7 +80,7 @@ export function Hero() {
             { n: 10, s: "+", l: "Months Serving Tukkuguda" },
             { n: 15, s: "+", l: "Specialist Services" },
             { n: 1000, s: "+", l: "Smiles Cared For" },
-            { n: 5, s: ".0", l: "Patient Rating" },
+            { n: 4, s: ".7", l: "Patient Rating" },
           ].map((s, i) => (
             <div key={s.l} className={`py-8 md:py-10 text-center ${i > 0 ? "md:border-l border-white/10" : ""} ${i % 2 === 1 ? "border-l border-white/10 md:border-l" : ""}`}>
               <div className="font-display text-4xl md:text-5xl lg:text-6xl text-white font-semibold">
@@ -116,7 +116,7 @@ export function PageHero({ eyebrow, title, accent, subtitle }: { eyebrow: string
   return (
     <section className="relative overflow-hidden bg-ink text-white">
       <div className="absolute inset-0">
-        <img src={clinic} alt="" className="w-full h-full object-cover opacity-25" />
+        <img src={clinic} alt="" loading="lazy" decoding="async" className="w-full h-full object-cover opacity-25" />
         <div className="absolute inset-0 bg-gradient-to-b from-ink/90 via-ink/85 to-ink" />
       </div>
       <div className="relative max-w-7xl mx-auto px-4 py-16 sm:py-20 md:py-28 text-center animate-reveal">
@@ -133,7 +133,7 @@ export function PageHero({ eyebrow, title, accent, subtitle }: { eyebrow: string
 /* ---------------- PHILOSOPHY ---------------- */
 export function Philosophy() {
   const items = [
-    { title: "Precision & Innovation", body: "Every scanner, laser, and microscope serves one purpose — better outcomes with a seamless experience for you.", img: sImplant },
+    { title: "Precision & Innovation", body: "Every scanner, laser, and microscope serves one purpose  better outcomes with a seamless experience for you.", img: sImplant },
     { title: "Legacy of Trust", body: "With every consultation, treatment, and smile restored, we honour the trust our patients place in us.", img: clinic },
     { title: "Highest Standard", body: "A team of specialists trained in modern protocols, unmatched sterilisation standards, and tooth-preservation-first care.", img: sSmile },
   ];
@@ -156,7 +156,7 @@ export function Philosophy() {
               <div className="relative group">
                 <div className="absolute -inset-4 bg-gradient-gold opacity-10 blur-3xl rounded-full group-hover:opacity-20 transition-opacity" />
                 <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-gold ring-1 ring-gold/20">
-                  <img src={it.img} alt={it.title} className="w-full h-[240px] sm:h-[320px] md:h-[400px] object-cover group-hover:scale-105 transition-transform duration-700" />
+                  <img src={it.img} alt={it.title} loading="lazy" decoding="async" className="w-full h-[240px] sm:h-[320px] md:h-[400px] object-cover group-hover:scale-105 transition-transform duration-700" />
                 </div>
               </div>
               <div className="mt-2 md:mt-0">
@@ -180,17 +180,17 @@ export function FounderQuote() {
   return (
     <section className="relative py-16 sm:py-20 md:py-28 bg-ink text-white overflow-hidden">
       <div className="absolute inset-0 opacity-20">
-        <img src={clinic} alt="" className="w-full h-full object-cover" />
+        <img src={clinic} alt="" loading="lazy" decoding="async" className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/90 to-ink/50" />
       </div>
       <div className="relative max-w-4xl mx-auto px-4 sm:px-6 text-center reveal">
         <Quote className="mx-auto w-8 sm:w-10 h-8 sm:h-10 text-gold" />
         <blockquote className="mt-4 font-display italic text-xl sm:text-2xl md:text-4xl leading-snug text-white">
-          Dentistry isn't just about fixing teeth. It's about restoring confidence, comfort and trust — patient by patient, smile by smile.
+          Dentistry isn't just about fixing teeth. It's about restoring confidence, comfort and trust  patient by patient, smile by smile.
         </blockquote>
         <div className="mt-6 sm:mt-8 flex items-center justify-center gap-3 text-sm">
           <span className="w-8 sm:w-10 h-px bg-gold" />
-          <span className="tracking-[0.2em] uppercase text-gold text-[10px] sm:text-xs">Sri Shobh Dental — Founding Vision</span>
+          <span className="tracking-[0.2em] uppercase text-gold text-[10px] sm:text-xs">Sri Shobh Dental  Founding Vision</span>
           <span className="w-8 sm:w-10 h-px bg-gold" />
         </div>
       </div>
@@ -208,7 +208,7 @@ function ServiceCard({ name, desc, img, index }: { name: string; desc: string; i
       style={{ transitionDelay: `${(index % 4) * 60}ms` }}
     >
       <div className="relative aspect-[4/3] overflow-hidden bg-gold-soft/40">
-        <img src={img} alt={name} width={800} height={600} loading="lazy" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+        <img src={img} alt={name} width={800} height={600} loading="lazy" decoding="async" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
         <div className="absolute inset-0 bg-gradient-to-t from-ink/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
         <div className="absolute top-3 left-3 w-8 h-8 rounded-full bg-white/90 backdrop-blur flex items-center justify-center text-[10px] font-black text-gold-dark opacity-0 group-hover:opacity-100 transition-opacity">
           {String(index + 1).padStart(2, "0")}
@@ -236,7 +236,7 @@ export function Services({ limit }: { limit?: number } = {}) {
           <h2 className="mt-4 font-display font-medium text-3xl sm:text-4xl md:text-5xl text-ink leading-tight">
             Comprehensive <span className="italic-accent">specialist</span> care
           </h2>
-          <p className="mt-3 text-sm sm:text-base text-muted-foreground">Everything your family needs — under one trusted roof.</p>
+          <p className="mt-3 text-sm sm:text-base text-muted-foreground">Everything your family needs  under one trusted roof.</p>
         </div>
 
         <div className="mt-10 sm:mt-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 sm:gap-6">
@@ -289,7 +289,7 @@ export function About() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 grid lg:grid-cols-[1fr_1.4fr] gap-8 sm:gap-12 items-stretch">
         <div className="reveal relative">
           <div className="absolute -inset-4 bg-gradient-gold opacity-15 blur-3xl rounded-full" />
-          <img src={clinic} alt="Sri Shobh Dental clinic interior" width={1400} height={1000} loading="lazy" className="relative rounded-2xl sm:rounded-3xl w-full h-full min-h-[260px] sm:min-h-[320px] object-cover shadow-gold ring-1 ring-gold/20" />
+          <img src={clinic} alt="Sri Shobh Dental clinic interior" width={1400} height={1000} loading="lazy" decoding="async" className="relative rounded-2xl sm:rounded-3xl w-full h-full min-h-[260px] sm:min-h-[320px] object-cover shadow-gold ring-1 ring-gold/20" />
         </div>
         <div className="reveal bg-white rounded-2xl sm:rounded-3xl border border-border p-6 sm:p-8 md:p-10">
           <div className="eyebrow">About the Clinic</div>
@@ -297,7 +297,7 @@ export function About() {
             A premium, <span className="italic-accent">specialist-driven</span> dental home
           </h2>
           <p className="mt-4 text-sm sm:text-base text-muted-foreground leading-relaxed">
-            Sri Shobh Dental & Implant Centre is committed to advanced, ethical and personalised care — creating healthy, confident smiles with exceptional patient experiences.
+            Sri Shobh Dental & Implant Centre is committed to advanced, ethical and personalised care  creating healthy, confident smiles with exceptional patient experiences.
           </p>
 
           <div className="mt-6 sm:mt-8 grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -376,7 +376,7 @@ export function Marquee() {
 /* ---------------- GALLERY ---------------- */
 export function Gallery({ limit }: { limit?: number } = {}) {
   const imgs = limit ? galleryImgs.slice(0, limit) : galleryImgs;
-  const [active, setActive] = useState<string | null>(null);
+  const [active, setActive] = useState<GalleryItem | null>(null);
   return (
     <section id="gallery" className="py-14 sm:py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
@@ -388,15 +388,19 @@ export function Gallery({ limit }: { limit?: number } = {}) {
           <p className="mt-3 text-sm sm:text-base text-muted-foreground">A glimpse at the smiles we've cared for and crafted.</p>
         </div>
         <div className="mt-10 sm:mt-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
-          {imgs.map((src, i) => (
+          {imgs.map((item, i) => (
             <button
               type="button"
               key={i}
-              onClick={() => setActive(src)}
+              onClick={() => setActive(item)}
               className="reveal group relative overflow-hidden rounded-2xl aspect-[4/3] cursor-zoom-in text-left shadow-soft hover:shadow-gold transition-all duration-500"
               style={{ transitionDelay: `${i * 60}ms` }}
             >
-              <img src={src} alt="" width={800} height={600} loading="lazy" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+              {item.type === 'video' ? (
+                <video src={item.src} preload="metadata" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" muted playsInline loop autoPlay />
+              ) : (
+                <img src={item.src} alt="" width={800} height={600} loading="lazy" decoding="async" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+              )}
               <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
               <div className="absolute bottom-3.5 left-4 text-white text-xs sm:text-sm font-semibold opacity-0 group-hover:opacity-100 transition-opacity drop-shadow">Sri Shobh Dental • Tukkuguda</div>
             </button>
@@ -417,7 +421,11 @@ export function Gallery({ limit }: { limit?: number } = {}) {
           onClick={() => setActive(null)}
           className="fixed inset-0 z-[70] bg-ink/90 backdrop-blur flex items-center justify-center p-4 animate-reveal cursor-zoom-out"
         >
-          <img src={active} alt="" className="max-w-full max-h-full rounded-2xl shadow-gold ring-1 ring-gold/40" />
+          {active.type === 'video' ? (
+            <video src={active.src} controls autoPlay className="max-w-full max-h-full rounded-2xl shadow-gold ring-1 ring-gold/40" />
+          ) : (
+            <img src={active.src} alt="" loading="lazy" decoding="async" className="max-w-full max-h-full rounded-2xl shadow-gold ring-1 ring-gold/40" />
+          )}
         </div>
       )}
     </section>
@@ -430,7 +438,7 @@ export function Testimonials() {
     { name: "Priya S.", text: "The team made my implants painless and my new smile feels completely natural. Truly caring specialists." },
     { name: "Rahul K.", text: "Cleanest, most modern clinic in Tukkuguda. Explained every step and pricing upfront. Highly recommended." },
     { name: "Anjali M.", text: "My kids love Dr. and the aligners transformed my confidence. Warm, professional and gentle throughout." },
-    { name: "Vikram T.", text: "Emergency root canal on a Sunday — they answered, treated me the same evening. Life savers." },
+    { name: "Vikram T.", text: "Emergency root canal on a Sunday  they answered, treated me the same evening. Life savers." },
   ];
   const [i, setI] = useState(0);
   useEffect(() => {
@@ -456,7 +464,7 @@ export function Testimonials() {
             <p key={i} className="mt-5 sm:mt-6 font-display italic text-base sm:text-lg md:text-2xl text-ink leading-snug animate-reveal">
               "{items[i].text}"
             </p>
-            <div className="mt-5 sm:mt-6 text-xs sm:text-sm font-semibold text-gold-dark tracking-wider uppercase">— {items[i].name}</div>
+            <div className="mt-5 sm:mt-6 text-xs sm:text-sm font-semibold text-gold-dark tracking-wider uppercase"> {items[i].name}</div>
           </div>
           <div className="mt-6 flex justify-center gap-2">
             {items.map((_, k) => (
@@ -485,7 +493,7 @@ export function Contact() {
           <h2 className="mt-4 font-display font-medium text-3xl sm:text-4xl md:text-5xl text-ink leading-tight">
             Your perfect smile <span className="italic-accent">awaits</span>
           </h2>
-          <p className="mt-3 text-sm sm:text-base text-muted-foreground">Schedule a consultation with our specialists — we'll be in touch within hours.</p>
+          <p className="mt-3 text-sm sm:text-base text-muted-foreground">Schedule a consultation with our specialists  we'll be in touch within hours.</p>
         </div>
 
         <div className="mt-10 sm:mt-12 grid grid-cols-1 lg:grid-cols-5 gap-6 sm:gap-8">
@@ -529,7 +537,7 @@ export function Contact() {
             </button>
             {sent ? (
               <p className="mt-4 text-xs sm:text-sm text-gold-dark font-semibold flex items-center gap-1.5 animate-reveal">
-                <CheckCircle2 className="w-4 h-4 text-gold" /> Opening WhatsApp — we'll respond shortly!
+                <CheckCircle2 className="w-4 h-4 text-gold" /> Opening WhatsApp  we'll respond shortly!
               </p>
             ) : (
               <p className="mt-4 text-xs sm:text-sm text-muted-foreground flex items-center gap-1.5">
@@ -564,5 +572,70 @@ function Field({ label, ...props }: { label: string } & React.InputHTMLAttribute
       <span className="block text-xs font-semibold text-ink/70 mb-1.5">{label}</span>
       <input {...props} className="w-full h-11 sm:h-12 rounded-lg border border-border bg-background px-3.5 text-sm focus:outline-none focus:ring-2 focus:ring-gold/40 focus:border-gold" />
     </label>
+  );
+}
+
+export function Team() {
+  return (
+    <section className="py-20 md:py-32 bg-background relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 relative z-10">
+        <div className="max-w-3xl mx-auto text-center mb-16 md:mb-24">
+          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-ink font-semibold mb-6">
+            Meet Our <span className="text-gold italic font-serif">Specialists</span>
+          </h2>
+          <p className="text-lg text-ink/70">
+            All major dental specialties under one roof, presenting a lineup of experts dedicated to precision, care, and craftsmanship.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {specialists.map((doc, i) => (
+            <div key={doc.name} className="group bg-white rounded-2xl shadow-soft border border-border hover:border-gold/30 hover:shadow-gold transition-all duration-500 flex flex-col h-full overflow-hidden">
+              <div className="aspect-[4/3] sm:aspect-square relative overflow-hidden bg-ink/5">
+                {/* @ts-ignore */}
+                {doc.image ? (
+                  /* @ts-ignore */
+                  <img src={doc.image} alt={doc.name} loading="lazy" decoding="async" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                ) : (
+                  <div className="w-full h-full flex items-center justify-center">
+                    <User className="w-16 h-16 text-ink/20" />
+                  </div>
+                )}
+                <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/20 to-transparent opacity-80"></div>
+                
+                <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
+                  <div className="text-gold font-medium mb-1 drop-shadow-md">{doc.qualifications}</div>
+                  <h3 className="font-display text-2xl md:text-3xl text-white font-semibold drop-shadow-md">{doc.name}</h3>
+                </div>
+              </div>
+
+              <div className="p-6 md:p-8 flex flex-col flex-1">
+                <div className="mb-6">
+                  <div className="text-base font-semibold text-ink/90">
+                    {doc.role} 
+                    {/* @ts-ignore */}
+                    {doc.subtitle && <span className="text-ink/60 italic font-normal ml-1">({doc.subtitle})</span>}
+                  </div>
+                  <div className="text-xs uppercase tracking-widest text-gold-dark mt-5 mb-2 font-semibold">Department</div>
+                  <div className="text-sm text-ink/80">{doc.department}</div>
+                </div>
+                
+                <div className="mt-auto pt-6 border-t border-border">
+                  <div className="text-xs uppercase tracking-widest text-ink/50 mb-4">Areas of Expertise</div>
+                  <ul className="space-y-3">
+                    {doc.expertise.map(exp => (
+                      <li key={exp} className="flex items-start gap-3 text-sm text-ink/70">
+                        <CheckCircle2 className="w-4 h-4 text-gold shrink-0 mt-0.5" />
+                        <span>{exp}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }

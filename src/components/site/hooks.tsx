@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useRouterState } from "@tanstack/react-router";
-import { ArrowUp, MessageCircle } from "lucide-react";
-import { WHATSAPP } from "./data";
+import { ArrowUp, MessageCircle, Phone } from "lucide-react";
+import { WHATSAPP, PHONE } from "./data";
 
 /** Reveal-on-scroll for any element with class "reveal" (+ optional data-reveal variant). */
 export function useReveal() {
@@ -54,22 +54,17 @@ export function ScrollProgress() {
   );
 }
 
-/** Floating back-to-top button. */
-export function BackToTop() {
-  const [show, setShow] = useState(false);
-  useEffect(() => {
-    const onScroll = () => setShow(window.scrollY > 500);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+/** Floating Phone button. */
+export function FloatingPhone() {
   return (
-    <button
-      aria-label="Back to top"
-      onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-      className={`hidden md:flex fixed bottom-6 right-6 z-40 w-12 h-12 rounded-full bg-ink text-gold border border-gold/40 items-center justify-center shadow-gold hover:bg-gradient-gold hover:text-white transition-all ${show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4 pointer-events-none"}`}
+    <a
+      href={`tel:${PHONE}`}
+      aria-label="Call Us"
+      className="hidden md:flex fixed bottom-6 right-6 z-40 w-14 h-14 rounded-full bg-gold text-white items-center justify-center shadow-gold hover:scale-110 transition-transform"
     >
-      <ArrowUp className="w-5 h-5" />
-    </button>
+      <span className="absolute inset-0 rounded-full bg-gold animate-ping opacity-40" />
+      <Phone className="w-6 h-6 relative" />
+    </a>
   );
 }
 
@@ -81,7 +76,7 @@ export function FloatingWhatsApp() {
       target="_blank"
       rel="noreferrer"
       aria-label="Chat on WhatsApp"
-      className="hidden md:flex fixed bottom-6 left-6 z-40 w-14 h-14 rounded-full bg-[#25D366] text-white items-center justify-center shadow-gold hover:scale-110 transition-transform"
+      className="hidden md:flex fixed bottom-24 right-6 z-40 w-14 h-14 rounded-full bg-[#25D366] text-white items-center justify-center shadow-gold hover:scale-110 transition-transform"
     >
       <span className="absolute inset-0 rounded-full bg-[#25D366] animate-ping opacity-40" />
       <MessageCircle className="w-6 h-6 relative" />

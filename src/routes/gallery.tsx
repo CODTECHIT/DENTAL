@@ -6,8 +6,8 @@ export const Route = createFileRoute("/gallery")({
   head: () => ({
     meta: [
       { title: "Smile Gallery | Sri Shobh Dental & Implant Centre" },
-      { name: "description", content: "Explore real transformations — smile designs, implants, whitening and orthodontic results crafted at Sri Shobh Dental, Tukkuguda." },
-      { property: "og:title", content: "Smile Gallery — Sri Shobh Dental" },
+      { name: "description", content: "Explore real transformations  smile designs, implants, whitening and orthodontic results crafted at Sri Shobh Dental, Tukkuguda." },
+      { property: "og:title", content: "Smile Gallery  Sri Shobh Dental" },
       { property: "og:description", content: "Stories of transformation from patients we've cared for at Tukkuguda's trusted dental clinic." },
     ],
   }),

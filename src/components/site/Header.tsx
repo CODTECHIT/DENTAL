@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useRouterState } from "@tanstack/react-router";
 import { Phone, MessageCircle, Mail, MapPin, Calendar, Menu, X } from "lucide-react";
-import logo from "@/assets/logo.png";
 import { PHONE, WHATSAPP, EMAIL, ADDRESS_SHORT, navLinks } from "./data";
 
 function TopBar() {
@@ -37,15 +36,12 @@ export function Header() {
     <>
       <TopBar />
       <header className={`sticky top-0 z-40 transition-all ${scrolled ? "bg-white/95 backdrop-blur shadow-soft" : "bg-white"}`}>
-        <div className="max-w-7xl mx-auto px-4 py-3 grid grid-cols-[minmax(0,1fr)_auto] items-center gap-4 lg:flex lg:justify-between">
-          <Link to="/" className="flex items-center gap-3 group min-w-0">
-            <img src={logo} alt="Sri Shobh Dental Logo" width={56} height={56} className="w-12 h-12 md:w-14 md:h-14 object-contain shrink-0 transition-transform group-hover:scale-105 group-hover:rotate-6" />
-            <div className="leading-tight min-w-0">
-              <div className="font-display text-lg md:text-xl font-black text-ink tracking-tight truncate">
-                <span className="text-gold">श्री</span> SHOBH
-              </div>
-              <div className="text-[9px] md:text-[11px] text-gold-dark font-semibold tracking-[0.15em] truncate">DENTAL & IMPLANT CENTRE</div>
-            </div>
+        <div className="max-w-7xl mx-auto px-4 py-3 grid grid-cols-[1fr_auto_1fr] items-center gap-4 lg:flex lg:justify-between">
+          {/* Spacer for mobile to push logo to center */}
+          <div className="lg:hidden"></div>
+          
+          <Link to="/" className="flex items-center justify-center gap-3 min-w-0">
+            <img src="/logo.jpg" alt="Sri Shobh Dental Logo" className="h-16 sm:h-20 lg:h-24 w-auto object-contain shrink-0" />
           </Link>
 
           <nav className="hidden lg:flex items-center gap-7">
@@ -61,7 +57,7 @@ export function Header() {
             ))}
           </nav>
 
-          <div className="flex items-center gap-2">
+          <div className="flex items-center justify-end gap-2 justify-self-end lg:justify-self-auto">
             <Link to="/contact" className="hidden sm:inline-flex items-center gap-2 bg-gradient-gold text-white font-medium text-sm px-5 py-2.5 rounded-full shadow-gold hover:scale-105 transition-transform">
               <Calendar className="w-4 h-4" /> Book Appointment
             </Link>

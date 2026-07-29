@@ -13,7 +13,7 @@ import { useEffect, type ReactNode } from "react";
 import appCss from "../styles.css?url";
 import { Header } from "@/components/site/Header";
 import { Footer, MobileActionBar } from "@/components/site/Footer";
-import { ScrollProgress, BackToTop, FloatingWhatsApp, useReveal } from "@/components/site/hooks";
+import { ScrollProgress, FloatingPhone, FloatingWhatsApp, useReveal } from "@/components/site/hooks";
 
 function NotFoundComponent() {
   return (
@@ -95,12 +95,12 @@ function SiteLayout() {
     <div className="min-h-screen bg-background overflow-x-hidden">
       <ScrollProgress />
       <Header />
-      <main key={pathname} className="animate-reveal">
+      <main>
         <Outlet />
       </main>
       <Footer />
       <MobileActionBar />
-      <BackToTop />
+      <FloatingPhone />
       <FloatingWhatsApp />
     </div>
   );

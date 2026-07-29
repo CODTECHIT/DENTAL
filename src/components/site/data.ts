@@ -18,10 +18,11 @@ import sTrauma from "@/assets/s-trauma.jpg";
 import sDenture from "@/assets/s-denture.jpg";
 import sVeneer from "@/assets/s-veneer.jpg";
 import sPreventive from "@/assets/s-preventive.jpg";
+import drSaiAkhil from "@/assets/Sai akhil.jpeg";
 
 export const PHONE = "8686325269";
 export const WHATSAPP = "918686325269";
-export const EMAIL = "Srishobhdental@gmail.com";
+export const EMAIL = "srishobhdental@gmail.com";
 export const ADDRESS_SHORT = "Tukkuguda, Maheshwaram, Telangana";
 export const ADDRESS_FULL = "First Floor, Srisailam Highway, beside HP Petrol Bunk, Tukkuguda, Maheshwaram, Telangana - 501359";
 
@@ -44,7 +45,37 @@ export const services = [
   { name: "Preventive & General Dentistry", desc: "Routine check-ups, cleanings & preventive care.", img: sPreventive },
 ];
 
-export const galleryImgs = [sSmile, sWhiten, sBraces, sGum, sInvisalign, sVeneer, sImplant, sCrown, sLaser];
+import v1 from "@/assets/video1.mp4";
+import v2 from "@/assets/video2.mp4";
+import v3 from "@/assets/video3.mp4";
+import v4 from "@/assets/video 4.mp4";
+import v5 from "@/assets/video5.mp4";
+import v6 from "@/assets/video6.mp4";
+import v7 from "@/assets/video7.mp4";
+import v8 from "@/assets/video8.mp4";
+
+export type GalleryItem = { type: 'image' | 'video', src: string };
+
+export const galleryImgs: GalleryItem[] = [
+  { type: 'video', src: v1 },
+  { type: 'video', src: v2 },
+  { type: 'video', src: v3 },
+  { type: 'video', src: v4 },
+  { type: 'video', src: v5 },
+  { type: 'video', src: v6 },
+  { type: 'video', src: v7 },
+  { type: 'video', src: v8 },
+  { type: 'image', src: drSaiAkhil },
+  { type: 'image', src: sSmile },
+  { type: 'image', src: sWhiten },
+  { type: 'image', src: sBraces },
+  { type: 'image', src: sGum },
+  { type: 'image', src: sInvisalign },
+  { type: 'image', src: sVeneer },
+  { type: 'image', src: sImplant },
+  { type: 'image', src: sCrown },
+  { type: 'image', src: sLaser }
+];
 
 export const whyChoose = [
   { icon: Award, title: "Advanced Technology" },
@@ -64,7 +95,114 @@ export const highlights = [
 export const navLinks = [
   { to: "/", label: "Home" },
   { to: "/about", label: "About Us" },
+  { to: "/team", label: "Our Team" },
   { to: "/services", label: "Services" },
   { to: "/gallery", label: "Gallery" },
   { to: "/contact", label: "Contact" },
 ] as const;
+
+export const specialists = [
+  {
+    name: "Dr. Sai Akhil Khadkekar",
+    image: drSaiAkhil,
+    qualifications: "BDS, MDS",
+    role: "Prosthodontist & Implantologist",
+    subtitle: "Owner & Founder",
+    department: "Prosthodontics, Implantology & Restorative Dentistry",
+    expertise: [
+      "Dental Implants",
+      "Full Mouth Rehabilitation",
+      "Smile Designing",
+      "Zirconia & Ceramic Crowns",
+      "Implant-Supported Prostheses",
+      "Complete & Partial Dentures",
+      "Cosmetic & Restorative Dentistry"
+    ]
+  },
+  {
+    name: "Dr. Ishitha",
+    qualifications: "BDS, MDS",
+    role: "Endodontist",
+    department: "Conservative Dentistry & Endodontics",
+    expertise: [
+      "Root Canal Treatment (RCT)",
+      "Re-Root Canal Treatment",
+      "Microscopic Endodontics",
+      "Aesthetic Restorations",
+      "Dental Trauma Management"
+    ]
+  },
+  {
+    name: "Dr. Shiva Prasad",
+    qualifications: "BDS, MDS",
+    role: "Periodontist & Oral Implantologist",
+    department: "Periodontology & Oral Implantology",
+    expertise: [
+      "Gum Disease Treatment",
+      "Laser Gum Therapy (LANAP)",
+      "Flap Surgery",
+      "Bone Grafting",
+      "Crown Lengthening",
+      "Dental Implants"
+    ]
+  },
+  {
+    name: "Dr. Abhiram",
+    qualifications: "BDS, MDS",
+    role: "Orthodontist",
+    department: "Orthodontics & Dentofacial Orthopaedics",
+    expertise: [
+      "Metal Braces",
+      "Ceramic Braces",
+      "Clear Aligners",
+      "Invisalign® Treatment",
+      "Bite Correction",
+      "Growth Modification"
+    ]
+  },
+  {
+    name: "Dr. Geeta Mamilla",
+    qualifications: "BDS, MDS",
+    role: "Pedodontist",
+    department: "Pediatric & Preventive Dentistry",
+    expertise: [
+      "Child Dental Care",
+      "Preventive Dentistry",
+      "Pediatric Root Canal Treatment",
+      "Fluoride Therapy",
+      "Pit & Fissure Sealants",
+      "Habit-Breaking Appliances",
+      "Special Care Dentistry for Children"
+    ]
+  },
+  {
+    name: "Dr. Santosh Vemulapalli",
+    qualifications: "BDS, MDS",
+    role: "Oral & Maxillofacial Surgeon",
+    department: "Oral & Maxillofacial Surgery",
+    expertise: [
+      "Wisdom Tooth Removal",
+      "Impacted Tooth Surgery",
+      "Facial Trauma Management",
+      "Minor & Major Oral Surgical Procedures",
+      "Jaw Cysts & Tumor Management",
+      "Pre-Prosthetic Surgery",
+      "Dental Implant Surgery"
+    ]
+  },
+  {
+    name: "Dr. Hemanth",
+    qualifications: "BDS, MDS",
+    role: "Oral Medicine & Radiologist",
+    department: "Oral Medicine & Oral Radiology",
+    expertise: [
+      "Oral Disease Diagnosis",
+      "Oral Cancer Screening & Early Detection",
+      "Management of Oral Mucosal Lesions",
+      "TMJ Disorders & Orofacial Pain",
+      "Salivary Gland Disorders",
+      "Digital Dental Radiology & CBCT Interpretation",
+      "Oral Medicine Consultation"
+    ]
+  }
+];
