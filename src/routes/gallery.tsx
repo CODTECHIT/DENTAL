@@ -5,11 +5,24 @@ export const Route = createFileRoute("/gallery")({
   component: GalleryPage,
   head: () => ({
     meta: [
-      { title: "Smile Gallery | Sri Shobh Dental & Implant Centre" },
-      { name: "description", content: "Explore real transformations  smile designs, implants, whitening and orthodontic results crafted at Sri Shobh Dental, Tukkuguda." },
-      { property: "og:title", content: "Smile Gallery  Sri Shobh Dental" },
-      { property: "og:description", content: "Stories of transformation from patients we've cared for at Tukkuguda's trusted dental clinic." },
+      { title: "Smile Gallery | Before & After Dental Treatments in Tukkuguda" },
+      {
+        name: "description",
+        content:
+          "Real dental transformations at Sri Shobh Dental, Tukkuguda — smile designs, implants, teeth whitening & orthodontic results. See the difference our specialists make.",
+      },
+      {
+        property: "og:title",
+        content: "Smile Gallery | Before & After Dental Treatments in Tukkuguda",
+      },
+      {
+        property: "og:description",
+        content:
+          "Real dental transformations from Tukkuguda's trusted clinic. Smile designs, implants, whitening & more.",
+      },
+      { property: "og:url", content: "https://shobhdental.com/gallery" },
     ],
+    links: [{ rel: "canonical", href: "https://shobhdental.com/gallery" }],
   }),
 });
 
@@ -20,7 +33,7 @@ function GalleryPage() {
         eyebrow="Patient Smiles"
         title="Stories of"
         accent="transformation"
-        subtitle="A glimpse at the confidence, comfort and craftsmanship behind every smile we've cared for."
+        subtitle="A glimpse at the confidence, comfort and craftsmanship behind every smile we've cared for at our Tukkuguda dental clinic."
       />
       <Gallery />
       <Testimonials />

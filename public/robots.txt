@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://shobhdental.com/sitemap.xml

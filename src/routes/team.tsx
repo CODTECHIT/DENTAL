@@ -5,11 +5,21 @@ export const Route = createFileRoute("/team")({
   component: TeamPage,
   head: () => ({
     meta: [
-      { title: "Our Specialists | Sri Shobh Dental & Implant Centre, Tukkuguda" },
-      { name: "description", content: "Meet our expert team of dental specialists. All major dental specialties under one roof, providing advanced and ethical care." },
-      { property: "og:title", content: "Meet Our Specialists - Sri Shobh Dental" },
-      { property: "og:description", content: "Our team of experts dedicated to precision, care, and craftsmanship." },
+      { title: "Meet Our Dental Specialists | 7 MDS Doctors in Tukkuguda" },
+      {
+        name: "description",
+        content:
+          "7 MDS specialists under one roof in Tukkuguda — prosthodontist, endodontist, orthodontist, periodontist, pedodontist, oral surgeon & radiologist. Expert dental care for your smile.",
+      },
+      { property: "og:title", content: "Meet Our Dental Specialists | 7 MDS Doctors in Tukkuguda" },
+      {
+        property: "og:description",
+        content:
+          "Our team of 7 MDS dental specialists in Tukkuguda dedicated to precision, care, and craftsmanship.",
+      },
+      { property: "og:url", content: "https://shobhdental.com/team" },
     ],
+    links: [{ rel: "canonical", href: "https://shobhdental.com/team" }],
   }),
 });
 
@@ -20,7 +30,7 @@ function TeamPage() {
         eyebrow="Meet Our Team"
         title="Specialists you can"
         accent="trust"
-        subtitle="Bringing together a team of highly qualified and experienced dental specialists to provide comprehensive care for your smile."
+        subtitle="Bringing together a team of highly qualified and experienced dental specialists in Tukkuguda to provide comprehensive care for your smile."
       />
       <Team />
       <Marquee />

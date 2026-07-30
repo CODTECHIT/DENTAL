@@ -16,7 +16,7 @@ export function useReveal() {
           }
         });
       },
-      { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
+      { threshold: 0.12, rootMargin: "0px 0px -40px 0px" },
     );
     const observeAll = () => {
       document.querySelectorAll(".reveal:not(.in)").forEach((el) => io.observe(el));
@@ -33,7 +33,6 @@ export function useReveal() {
   }, [pathname]);
 }
 
-
 /** Slim gold progress bar at the top of the viewport. */
 export function ScrollProgress() {
   const [p, setP] = useState(0);
@@ -49,7 +48,10 @@ export function ScrollProgress() {
   }, []);
   return (
     <div className="fixed top-0 inset-x-0 h-[3px] z-[60] pointer-events-none">
-      <div className="h-full bg-gradient-gold transition-[width] duration-100" style={{ width: `${p}%` }} />
+      <div
+        className="h-full bg-gradient-gold transition-[width] duration-100"
+        style={{ width: `${p}%` }}
+      />
     </div>
   );
 }
@@ -85,31 +87,47 @@ export function FloatingWhatsApp() {
 }
 
 /** Number counter that animates from 0 → target when it enters viewport. */
-export function Counter({ to, suffix = "", duration = 1400 }: { to: number; suffix?: string; duration?: number }) {
+export function Counter({
+  to,
+  suffix = "",
+  duration = 1400,
+}: {
+  to: number;
+  suffix?: string;
+  duration?: number;
+}) {
   const ref = useRef<HTMLSpanElement>(null);
   const [n, setN] = useState(0);
   useEffect(() => {
     if (!ref.current) return;
     let started = false;
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach((e) => {
-        if (e.isIntersecting && !started) {
-          started = true;
-          const start = performance.now();
-          const step = (t: number) => {
-            const p = Math.min(1, (t - start) / duration);
-            const eased = 1 - Math.pow(1 - p, 3);
-            setN(Math.round(to * eased));
-            if (p < 1) requestAnimationFrame(step);
-          };
-          requestAnimationFrame(step);
-        }
-      });
-    }, { threshold: 0.4 });
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting && !started) {
+            started = true;
+            const start = performance.now();
+            const step = (t: number) => {
+              const p = Math.min(1, (t - start) / duration);
+              const eased = 1 - Math.pow(1 - p, 3);
+              setN(Math.round(to * eased));
+              if (p < 1) requestAnimationFrame(step);
+            };
+            requestAnimationFrame(step);
+          }
+        });
+      },
+      { threshold: 0.4 },
+    );
     io.observe(ref.current);
     return () => io.disconnect();
   }, [to, duration]);
-  return <span ref={ref}>{n}{suffix}</span>;
+  return (
+    <span ref={ref}>
+      {n}
+      {suffix}
+    </span>
+  );
 }
 
 /** Attach 3D tilt on mouse-move to any card. */
@@ -124,7 +142,9 @@ export function useTilt<T extends HTMLElement>() {
       const y = (e.clientY - r.top) / r.height - 0.5;
       el.style.transform = `perspective(700px) rotateX(${(-y * 6).toFixed(2)}deg) rotateY(${(x * 8).toFixed(2)}deg) translateY(-4px)`;
     };
-    const reset = () => { el.style.transform = ""; };
+    const reset = () => {
+      el.style.transform = "";
+    };
     el.addEventListener("mousemove", onMove);
     el.addEventListener("mouseleave", reset);
     return () => {

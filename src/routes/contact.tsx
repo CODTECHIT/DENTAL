@@ -5,11 +5,24 @@ export const Route = createFileRoute("/contact")({
   component: ContactPage,
   head: () => ({
     meta: [
-      { title: "Contact & Book Appointment | Sri Shobh Dental, Tukkuguda" },
-      { name: "description", content: "Book your appointment at Sri Shobh Dental & Implant Centre, Tukkuguda. Call, WhatsApp, email or fill the form  we respond within hours." },
-      { property: "og:title", content: "Contact Sri Shobh Dental & Implant Centre" },
-      { property: "og:description", content: "Reach us anytime  Tukkuguda's trusted specialist dental clinic. Painless, punctual, patient-centred." },
+      { title: "Book Appointment | Dentist in Tukkuguda | Sri Shobh Dental & Implant Centre" },
+      {
+        name: "description",
+        content:
+          "Schedule your visit to Sri Shobh Dental in Tukkuguda. Call 8686325269, WhatsApp, or book online. Same-day emergency appointments available. Mon-Sat 10AM-9PM.",
+      },
+      {
+        property: "og:title",
+        content: "Book Appointment | Dentist in Tukkuguda | Sri Shobh Dental & Implant Centre",
+      },
+      {
+        property: "og:description",
+        content:
+          "Reach Tukkuguda's trusted specialist dental clinic. Call, WhatsApp, email or visit. Same-day appointments available.",
+      },
+      { property: "og:url", content: "https://shobhdental.com/contact" },
     ],
+    links: [{ rel: "canonical", href: "https://shobhdental.com/contact" }],
   }),
 });
 
@@ -20,7 +33,7 @@ function ContactPage() {
         eyebrow="Begin Your Journey"
         title="Your perfect smile"
         accent="awaits"
-        subtitle="Book a consultation  our specialists respond within a few hours."
+        subtitle="Book a consultation at our Tukkuguda dental clinic — our specialists respond within a few hours."
       />
       <Contact />
       <Marquee />
