@@ -36,9 +36,9 @@ export function Header() {
     <>
       <TopBar />
       <header className={`sticky top-0 z-40 transition-all rounded-b-2xl lg:rounded-b-3xl border-b-[3px] border-gold shadow-md ${scrolled ? "bg-white/95 backdrop-blur" : "bg-white"}`}>
-        <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-4 py-1 md:py-3 flex items-center justify-between">
           <Link to="/" className="flex items-center justify-start gap-3 z-10">
-            <img src="/logo.jpg" alt="Sri Shobh Dental Logo" className="h-24 sm:h-28 lg:h-32 w-auto object-contain shrink-0" />
+            <img src="/logo.jpg" alt="Sri Shobh Dental Logo" className="h-[50px] sm:h-[58px] lg:h-[72px] w-auto object-contain shrink-0" />
           </Link>
 
           <nav className="hidden lg:flex items-center gap-7">

@@ -199,29 +199,31 @@ export function FounderQuote() {
 }
 
 /* ---------------- SERVICE CARD with tilt ---------------- */
-function ServiceCard({ name, desc, img, index }: { name: string; desc: string; img: string; index: number }) {
+function ServiceCard({ name, desc, img, slug, index }: { name: string; desc: string; img: string; slug: string; index: number }) {
   const ref = useTilt<HTMLDivElement>();
   return (
-    <div
-      ref={ref}
-      className="reveal group bg-white border border-border rounded-2xl overflow-hidden hover:border-gold hover:shadow-gold transition-[border,box-shadow,transform] duration-500 flex flex-col"
-      style={{ transitionDelay: `${(index % 4) * 60}ms` }}
-    >
-      <div className="relative aspect-[4/3] overflow-hidden bg-gold-soft/40">
-        <img src={img} alt={name} width={800} height={600} loading="lazy" decoding="async" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
-        <div className="absolute inset-0 bg-gradient-to-t from-ink/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-        <div className="absolute top-3 left-3 w-8 h-8 rounded-full bg-white/90 backdrop-blur flex items-center justify-center text-[10px] font-black text-gold-dark opacity-0 group-hover:opacity-100 transition-opacity">
-          {String(index + 1).padStart(2, "0")}
+    <Link to="/services/$slug" params={{ slug }}>
+      <div
+        ref={ref}
+        className="reveal group bg-white border border-border rounded-2xl overflow-hidden hover:border-gold hover:shadow-gold transition-[border,box-shadow,transform] duration-500 flex flex-col h-full cursor-pointer"
+        style={{ transitionDelay: `${(index % 4) * 60}ms` }}
+      >
+        <div className="relative aspect-[4/3] overflow-hidden bg-gold-soft/40">
+          <img src={img} alt={name} width={800} height={600} loading="lazy" decoding="async" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+          <div className="absolute inset-0 bg-gradient-to-t from-ink/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+          <div className="absolute top-3 left-3 w-8 h-8 rounded-full bg-white/90 backdrop-blur flex items-center justify-center text-[10px] font-black text-gold-dark opacity-0 group-hover:opacity-100 transition-opacity">
+            {String(index + 1).padStart(2, "0")}
+          </div>
+        </div>
+        <div className="p-4 md:p-5 text-center flex-1 flex flex-col">
+          <h3 className="text-sm md:text-base font-bold text-ink leading-tight">{name}</h3>
+          <p className="mt-2 text-xs md:text-[13px] text-muted-foreground leading-relaxed flex-1">{desc}</p>
+          <div className="mt-3 inline-flex items-center justify-center gap-1 text-xs font-semibold text-gold opacity-0 group-hover:opacity-100 transition-opacity">
+            Learn more <ArrowRight className="w-3 h-3" />
+          </div>
         </div>
       </div>
-      <div className="p-4 md:p-5 text-center flex-1 flex flex-col">
-        <h3 className="text-sm md:text-base font-bold text-ink leading-tight">{name}</h3>
-        <p className="mt-2 text-xs md:text-[13px] text-muted-foreground leading-relaxed flex-1">{desc}</p>
-        <div className="mt-3 inline-flex items-center justify-center gap-1 text-xs font-semibold text-gold opacity-0 group-hover:opacity-100 transition-opacity">
-          Learn more <ArrowRight className="w-3 h-3" />
-        </div>
-      </div>
-    </div>
+    </Link>
   );
 }
 
@@ -241,7 +243,7 @@ export function Services({ limit }: { limit?: number } = {}) {
 
         <div className="mt-10 sm:mt-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 sm:gap-6">
           {list.map((s, i) => (
-            <ServiceCard key={s.name} name={s.name} desc={s.desc} img={s.img} index={i} />
+            <ServiceCard key={s.name} name={s.name} desc={s.desc} img={s.img} slug={s.slug} index={i} />
           ))}
         </div>
 

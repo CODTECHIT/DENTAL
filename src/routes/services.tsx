@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Outlet, useRouterState } from "@tanstack/react-router";
 import { PageHero, Services, WhyChoose, Marquee, ContactStrip } from "@/components/site/sections";
 
 export const Route = createFileRoute("/services")({
@@ -14,6 +14,11 @@ export const Route = createFileRoute("/services")({
 });
 
 function ServicesPage() {
+  const matches = useRouterState({ select: (s) => s.matches });
+  const isDetailView = matches.some((m) => m.routeId === "/services/$slug");
+
+  if (isDetailView) return <Outlet />;
+
   return (
     <>
       <PageHero
