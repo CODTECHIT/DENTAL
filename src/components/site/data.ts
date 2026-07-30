@@ -28,6 +28,9 @@ import drSaiAkhil from "@/assets/Sai akhil.jpeg";
 import drGeeta from "@/assets/Dr Geeta.jpeg";
 import drHemanth from "@/assets/Dr Hemanth.jpeg";
 import drShivaPrasad from "@/assets/Dr Shiva Prasad.jpeg";
+import drSantosh from "@/assets/dr santosh.jpeg";
+import drIshitha from "@/assets/Dr Ishitha.jpeg";
+import drAbhiram from "@/assets/Dr Abhiram.jpeg";
 
 export const PHONE = "8686325269";
 export const WHATSAPP = "918686325269";
@@ -229,7 +232,7 @@ export const specialists = [
     image: drSaiAkhil,
     qualifications: "BDS, MDS",
     role: "Prosthodontist & Implantologist",
-    subtitle: "Owner & Founder",
+    subtitle: "clinic head & Founder",
     department: "Prosthodontics, Implantology & Restorative Dentistry",
     expertise: [
       "Dental Implants",
@@ -243,6 +246,7 @@ export const specialists = [
   },
   {
     name: "Dr. Ishitha",
+    image: drIshitha,
     qualifications: "BDS, MDS",
     role: "Endodontist",
     department: "Conservative Dentistry & Endodontics",
@@ -271,6 +275,7 @@ export const specialists = [
   },
   {
     name: "Dr. Abhiram",
+    image: drAbhiram,
     qualifications: "BDS, MDS",
     role: "Orthodontist",
     department: "Orthodontics & Dentofacial Orthopaedics",
@@ -301,6 +306,7 @@ export const specialists = [
   },
   {
     name: "Dr. Santosh Vemulapalli",
+    image: drSantosh,
     qualifications: "BDS, MDS",
     role: "Oral & Maxillofacial Surgeon",
     department: "Oral & Maxillofacial Surgery",
