@@ -595,7 +595,7 @@ export function Team() {
                 {/* @ts-ignore */}
                 {doc.image ? (
                   /* @ts-ignore */
-                  <img src={doc.image} alt={doc.name} loading="lazy" decoding="async" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                  <img src={doc.image} alt={doc.name} loading="lazy" decoding="async" className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700" />
                 ) : (
                   <div className="w-full h-full flex items-center justify-center">
                     <User className="w-16 h-16 text-ink/20" />

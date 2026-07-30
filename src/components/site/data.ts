@@ -19,6 +19,8 @@ import sDenture from "@/assets/s-denture.jpg";
 import sVeneer from "@/assets/s-veneer.jpg";
 import sPreventive from "@/assets/s-preventive.jpg";
 import drSaiAkhil from "@/assets/Sai akhil.jpeg";
+import drGeeta from "@/assets/Dr Geeta.jpeg";
+import drHemanth from "@/assets/Dr Hemanth.jpeg";
 
 export const PHONE = "8686325269";
 export const WHATSAPP = "918686325269";
@@ -162,6 +164,7 @@ export const specialists = [
   },
   {
     name: "Dr. Geeta Mamilla",
+    image: drGeeta,
     qualifications: "BDS, MDS",
     role: "Pedodontist",
     department: "Pediatric & Preventive Dentistry",
@@ -192,6 +195,7 @@ export const specialists = [
   },
   {
     name: "Dr. Hemanth",
+    image: drHemanth,
     qualifications: "BDS, MDS",
     role: "Oral Medicine & Radiologist",
     department: "Oral Medicine & Oral Radiology",

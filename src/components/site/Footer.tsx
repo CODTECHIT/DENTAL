@@ -1,6 +1,5 @@
 import { Link } from "@tanstack/react-router";
 import { Phone, MessageCircle, Mail, MapPin, Calendar } from "lucide-react";
-import logo from "@/assets/logo.png";
 import { PHONE, WHATSAPP, EMAIL, ADDRESS_SHORT, ADDRESS_FULL, services, navLinks } from "./data";
 
 export function Footer() {
@@ -9,13 +8,9 @@ export function Footer() {
       <div className="max-w-7xl mx-auto px-4 grid md:grid-cols-4 gap-8">
         <div>
           <div className="flex items-center gap-3">
-            <img src={logo} alt="Logo" width={48} height={48} className="w-12 h-12 object-contain bg-white rounded-lg p-1" />
-            <div>
-              <div className="font-display font-black text-lg"><span className="text-gold">श्री</span> SHOBH</div>
-              <div className="text-[10px] tracking-[0.2em] text-gold">DENTAL & IMPLANT</div>
-            </div>
+            <img src="/footerlogo.jpg" alt="Sri Shobh Dental & Implant" width={160} height={60} className="object-contain" />
           </div>
-          <p className="mt-4 text-sm text-white/70">Healthy Smiles. Happier Lives.</p>
+          <p className="mt-4 text-sm text-white/70">specialist care — perfect smiles</p>
         </div>
         <div>
           <div className="text-sm font-semibold text-gold mb-3">Quick Links</div>
@@ -46,6 +41,7 @@ export function Footer() {
       </div>
       <div className="mt-10 pt-6 border-t border-white/10 text-center text-xs text-white/60 px-4">
         © 2026 Sri Shobh Dental & Implant Centre. All Rights Reserved. · {ADDRESS_FULL}
+        <div className="mt-1">Developed by <a href="https://codtechitsolutions.com/" target="_blank" rel="noreferrer" className="text-gold hover:underline">Cod Tech IT Solutions</a></div>
       </div>
     </footer>
   );
