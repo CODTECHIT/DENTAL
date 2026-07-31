@@ -21,7 +21,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Sri Shobh Dental — Tukkuguda's top-rated dental clinic offering implants, RCT, Invisalign, smile designing & laser dentistry by MDS specialists. Call 8686325269.",
+          "Sri Shobh Dental  Tukkuguda's top-rated dental clinic offering implants, RCT, Invisalign, smile designing & laser dentistry by MDS specialists. Call 8686325269.",
       },
       {
         property: "og:title",
@@ -30,7 +30,7 @@ export const Route = createFileRoute("/")({
       {
         property: "og:description",
         content:
-          "Tukkuguda's most trusted dental clinic — implants, RCT, Invisalign, smile design & laser dentistry by specialist doctors. Book your appointment today.",
+          "Tukkuguda's most trusted dental clinic  implants, RCT, Invisalign, smile design & laser dentistry by specialist doctors. Book your appointment today.",
       },
       { property: "og:url", content: "https://shobhdental.com/" },
     ],

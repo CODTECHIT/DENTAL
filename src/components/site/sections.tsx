@@ -19,7 +19,6 @@ import {
   User,
 } from "lucide-react";
 import clinic from "@/assets/clinic.jpg";
-import sImplant from "@/assets/s-implant.jpg";
 import sSmile from "@/assets/s-smile.jpg";
 import {
   PHONE,
@@ -68,13 +67,13 @@ export function Hero() {
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-gold" />
               </span>
               <span className="font-semibold tracking-wide uppercase text-[11px] sm:text-xs">
-                Excellence in Dentistry • Tukkuguda
+                Excellence in Dentistry  Tukkuguda
               </span>
             </div>
 
             <h1 className="font-display font-medium text-4xl sm:text-6xl md:text-7xl xl:text-[5rem] leading-[1.08] sm:leading-[1.03] text-white drop-shadow-lg">
               Expert Dental Care <br className="hidden sm:block" />
-              in <span className="text-gold">Tukkuguda</span> — <br className="hidden sm:block" />
+              in <span className="text-gold">Tukkuguda</span>  <br className="hidden sm:block" />
               perfecting harmony <br className="hidden sm:block" />
               and confidence in <br className="hidden sm:block" />
               every radiant <span className="italic-accent text-gold">smile.</span>
@@ -193,17 +192,17 @@ export function Philosophy() {
   const items = [
     {
       title: "Precision & Innovation",
-      body: "Every scanner, laser, and microscope serves one purpose  better outcomes with a seamless experience for you.",
-      img: sImplant,
+      body: "Every scanner, laser and microscope serves one purpose  better outcomes with a seamless experience for you.",
+      img: "/33b0fb33-3ae9-491f-95c1-ff46839337bf.png",
     },
     {
       title: "Legacy of Trust",
-      body: "With every consultation, treatment, and smile restored, we honour the trust our patients place in us.",
+      body: "With every consultation, treatment and smile restored, we honour the trust our patients place in us.",
       img: clinic,
     },
     {
       title: "Highest Standard",
-      body: "A team of specialists trained in modern protocols, unmatched sterilisation standards, and tooth-preservation-first care.",
+      body: "A team of specialists trained in modern protocols, unmatched sterilisation standards and tooth-preservation-first care.",
       img: sSmile,
     },
   ];
@@ -469,7 +468,7 @@ export function About() {
             <InfoBlock
               icon={Award}
               title="Our Core Values"
-              body="Excellence • Integrity • Compassion • Innovation • Patient-Centred Care • Safety • Continuous Learning"
+              body="Precise, tech-driven treatment with clear pricing, strict sterilisation and a team that listens before it treats honesty at every step."
             />
           </div>
         </div>
@@ -502,7 +501,7 @@ export function ContactStrip() {
   return (
     <section className="py-12 sm:py-16 bg-background relative z-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="reveal bg-gold-soft/80 border border-gold/25 rounded-3xl p-5 sm:p-6 shadow-soft grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 items-center">
+        <div className="reveal bg-gold-soft/80 border border-gold/25 rounded-3xl p-5 sm:p-6 shadow-soft grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 items-stretch">
           <StripItem icon={MapPin} title="Our Location" body={ADDRESS_FULL} />
           <StripItem icon={Phone} title="Call Us" body={PHONE} href={`tel:${PHONE}`} />
           <StripItem
@@ -513,7 +512,7 @@ export function ContactStrip() {
           />
           <Link
             to="/contact"
-            className="w-full sm:w-auto justify-self-stretch lg:justify-self-end inline-flex items-center justify-center gap-2 bg-gradient-gold text-white font-semibold px-6 py-3.5 rounded-full shadow-gold hover:scale-[1.03] transition-transform text-sm sm:text-base"
+            className="w-full sm:w-auto self-center lg:self-center inline-flex items-center justify-center gap-2 bg-gradient-gold text-white font-semibold px-6 py-3.5 rounded-full shadow-gold hover:scale-[1.03] transition-transform text-sm sm:text-base"
           >
             <Calendar className="w-4 h-4" /> Book Appointment
           </Link>
@@ -535,7 +534,7 @@ function StripItem({
   href?: string;
 }) {
   const inner = (
-    <div className="flex items-start gap-3 min-w-0">
+    <div className="flex items-start gap-3 min-w-0 h-full">
       <div className="w-9 h-9 rounded-full bg-white flex items-center justify-center shrink-0">
         <Icon className="w-4 h-4 text-gold-dark" />
       </div>
@@ -550,7 +549,7 @@ function StripItem({
       href={href}
       target={href.startsWith("http") ? "_blank" : undefined}
       rel="noreferrer"
-      className="hover:opacity-80 transition-opacity"
+      className="hover:opacity-80 transition-opacity h-full"
     >
       {inner}
     </a>
@@ -637,7 +636,7 @@ export function Gallery({ limit }: { limit?: number } = {}) {
               )}
               <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
               <div className="absolute bottom-3.5 left-4 text-white text-xs sm:text-sm font-semibold opacity-0 group-hover:opacity-100 transition-opacity drop-shadow">
-                Sri Shobh Dental • Tukkuguda
+                Sri Shobh Dental  Tukkuguda
               </div>
             </button>
           ))}
@@ -670,7 +669,7 @@ export function Gallery({ limit }: { limit?: number } = {}) {
           ) : (
             <img
               src={active.src}
-              alt="Dental treatment result gallery — Sri Shobh Dental Tukkuguda"
+              alt="Dental treatment result gallery  Sri Shobh Dental Tukkuguda"
               width={1200}
               height={900}
               loading="lazy"
@@ -785,7 +784,7 @@ export function Contact() {
             <ContactCard
               icon={Clock}
               title="Working Hours"
-              body="Mon – Sat: 10:00 AM – 9:00 PM • Sun: By appointment"
+              body="Mon – Sat: 10:00 AM – 9:00 PM  Sun: By appointment"
             />
           </div>
 
@@ -911,7 +910,7 @@ export function Team() {
           </h2>
           <p className="text-lg text-ink/70">
             All major dental specialties under one roof, presenting a lineup of experts dedicated to
-            precision, care, and craftsmanship.
+            precision, care and craftsmanship.
           </p>
         </div>
 
@@ -951,11 +950,13 @@ export function Team() {
 
               <div className="p-6 md:p-8 flex flex-col flex-1">
                 <div className="mb-6">
-                  <div className="text-base font-semibold text-ink/90">
+                  <div className="text-sm sm:text-base font-semibold text-ink/90 flex items-center flex-wrap whitespace-nowrap">
                     {doc.role}
                     {/* @ts-ignore */}
                     {doc.subtitle && (
-                      <span className="text-ink/60 italic font-normal ml-1">({doc.subtitle})</span>
+                      <span className="text-ink/60 italic font-normal ml-1">
+                        ({doc.subtitle})
+                      </span>
                     )}
                   </div>
                   <div className="text-xs uppercase tracking-widest text-gold-dark mt-5 mb-2 font-semibold">

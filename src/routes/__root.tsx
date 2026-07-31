@@ -81,7 +81,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "description",
         content:
-          "Best dental clinic in Tukkuguda, Hyderabad — dental implants, root canal, Invisalign, smile design & laser dentistry by MDS specialists. Book your appointment today.",
+          "Best dental clinic in Tukkuguda, Hyderabad  dental implants, root canal, Invisalign, smile design & laser dentistry by MDS specialists. Book your appointment today.",
       },
       { name: "author", content: "Sri Shobh Dental & Implant Centre" },
       { property: "og:title", content: "Sri Shobh Dental & Implant Centre" },
@@ -98,7 +98,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "twitter:description",
         content:
-          "Best dental clinic in Tukkuguda, Hyderabad — implants, RCT, Invisalign & more by MDS specialists.",
+          "Best dental clinic in Tukkuguda, Hyderabad  implants, RCT, Invisalign & more by MDS specialists.",
       },
       { name: "twitter:image", content: "https://shobhdental.com/og-image.png" },
     ],
@@ -160,9 +160,8 @@ function OpeningAnimation() {
 
   return (
     <div
-      className={`fixed inset-0 z-[100] bg-background flex items-center justify-center transition-all duration-700 ease-in-out ${
-        animatingOut ? "opacity-0 scale-105 pointer-events-none" : "opacity-100 scale-100"
-      }`}
+      className={`fixed inset-0 z-[100] bg-background flex items-center justify-center transition-all duration-700 ease-in-out ${animatingOut ? "opacity-0 scale-105 pointer-events-none" : "opacity-100 scale-100"
+        }`}
     >
       <div className="relative">
         <div className="absolute inset-0 bg-gold/20 blur-3xl rounded-full animate-pulse"></div>
@@ -189,7 +188,7 @@ const ldJson = {
     "Best dental clinic in Tukkuguda, Hyderabad. MDS specialists in implants, RCT, Invisalign, smile design & laser dentistry.",
   address: {
     "@type": "PostalAddress",
-    streetAddress: "First Floor, Srisailam Highway, beside HP Petrol Bunk, Tukkuguda",
+    streetAddress: "First Floor, Srisailam Highway beside HP Petrol Bunk, Tukkuguda",
     addressLocality: "Maheshwaram",
     addressRegion: "Telangana",
     postalCode: "501359",

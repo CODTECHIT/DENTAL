@@ -33,7 +33,7 @@ function ContactPage() {
         eyebrow="Begin Your Journey"
         title="Your perfect smile"
         accent="awaits"
-        subtitle="Book a consultation at our Tukkuguda dental clinic — our specialists respond within a few hours."
+        subtitle="Book a consultation at our Tukkuguda dental clinic  our specialists respond within a few hours."
       />
       <Contact />
       <Marquee />

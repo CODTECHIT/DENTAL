@@ -4,7 +4,7 @@ description: Run comprehensive SEO audit and health check on shobhdental.com
 
 Analyze the current SEO health of the project at `C:\Users\MAHAJAN ASHOK\OneDrive\Desktop\dental`.
 
-Read all route files in `src/routes/`, the root layout at `src/routes/__root.tsx`, the data file at `src/components/site/data.ts`, section components at `src/components/site/sections.tsx`, and check `public/` for sitemap and robots.
+Read all route files in `src/routes/`, the root layout at `src/routes/__root.tsx`, the data file at `src/components/site/data.ts`, section components at `src/components/site/sections.tsx` and check `public/` for sitemap and robots.
 
 Produce a structured report with status badges (✅ PASS / ⚠️ WARN / ❌ FAIL) and specific file references for each check below.
 
@@ -39,4 +39,4 @@ Produce a structured report with status badges (✅ PASS / ⚠️ WARN / ❌ FAI
 - loading="lazy" on non-hero images
 - width/height attributes on loaded images
 
-End the report with: SEO Health Score (X/30), remaining critical items, and quick wins.
+End the report with: SEO Health Score (X/30), remaining critical items and quick wins.

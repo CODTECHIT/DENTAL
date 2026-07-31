@@ -5,7 +5,7 @@ import { PageHero } from "@/components/site/sections";
 
 const SERVICE_META: Record<string, { title: string; description: string }> = {};
 for (const s of services) {
-  const desc = s.detailContent?.replace(/[.—–-]/g, "").trim() ?? "";
+  const desc = s.detailContent?.replace(/[.–-]/g, "").trim() ?? "";
   const firstSentence = desc.split(/\.\s/)[0] + ".";
   SERVICE_META[s.slug] = {
     title: `${s.name} in Tukkuguda | Sri Shobh Dental & Implant Centre`,

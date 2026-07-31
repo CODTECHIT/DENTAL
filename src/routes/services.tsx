@@ -9,7 +9,7 @@ export const Route = createFileRoute("/services")({
       {
         name: "description",
         content:
-          "Complete dental care in Tukkuguda, Hyderabad — dental implants, RCT, Invisalign, teeth whitening, laser gum treatment, pediatric dentistry, zirconia crowns & more by MDS specialists.",
+          "Complete dental care in Tukkuguda, Hyderabad  dental implants, RCT, Invisalign, teeth whitening, laser gum treatment, pediatric dentistry, zirconia crowns & more by MDS specialists.",
       },
       {
         property: "og:title",
@@ -38,7 +38,7 @@ function ServicesPage() {
         eyebrow="What We Offer"
         title="Every treatment,"
         accent="crafted with care"
-        subtitle="From routine check-ups to full-mouth rehabilitation — 15+ specialist services in Tukkuguda delivered with modern technology and compassion."
+        subtitle="From routine check-ups to full-mouth rehabilitation  15+ specialist services in Tukkuguda delivered with modern technology and compassion."
       />
       <Services />
       <WhyChoose />

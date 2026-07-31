@@ -11,12 +11,12 @@ export function Footer() {
             <img
               src="/footerlogo.jpg"
               alt="Sri Shobh Dental & Implant"
-              width={160}
-              height={60}
+              width={200}
+              height={75}
               className="object-contain"
             />
           </div>
-          <p className="mt-4 text-sm text-white/70">specialist care — perfect smiles</p>
+          <p className="mt-4 text-sm text-white/70">Specialist Care - Perfect Smiles</p>
         </div>
         <div>
           <div className="text-sm font-semibold text-gold mb-3">Quick Links</div>
@@ -50,23 +50,23 @@ export function Footer() {
         <div>
           <div className="text-sm font-semibold text-gold mb-3">Contact Us</div>
           <ul className="space-y-2 text-sm text-white/80">
-            <li className="flex gap-2">
+            <li className="flex items-center gap-2">
               <Phone className="w-4 h-4 text-gold shrink-0" /> {PHONE}
             </li>
-            <li className="flex gap-2">
+            <li className="flex items-center gap-2">
               <MessageCircle className="w-4 h-4 text-gold shrink-0" /> {PHONE}
             </li>
-            <li className="flex gap-2">
+            <li className="flex items-center gap-2">
               <Mail className="w-4 h-4 text-gold shrink-0" /> {EMAIL}
             </li>
-            <li className="flex gap-2">
-              <MapPin className="w-4 h-4 text-gold shrink-0 mt-0.5" /> {ADDRESS_SHORT} - 501359
+            <li className="flex items-center gap-2">
+              <MapPin className="w-4 h-4 text-gold shrink-0" /> {ADDRESS_SHORT} - 501359
             </li>
           </ul>
         </div>
       </div>
       <div className="mt-10 pt-6 border-t border-white/10 text-center text-xs text-white/60 px-4">
-        © 2026 Sri Shobh Dental & Implant Centre. All Rights Reserved. · {ADDRESS_FULL}
+        © 2026 Sri Shobh Dental & Implant Centre. All Rights Reserved. {ADDRESS_FULL}
         <div className="mt-1">
           Developed by{" "}
           <a

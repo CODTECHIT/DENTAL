@@ -9,7 +9,7 @@ export const Route = createFileRoute("/gallery")({
       {
         name: "description",
         content:
-          "Real dental transformations at Sri Shobh Dental, Tukkuguda — smile designs, implants, teeth whitening & orthodontic results. See the difference our specialists make.",
+          "Real dental transformations at Sri Shobh Dental, Tukkuguda  smile designs, implants, teeth whitening & orthodontic results. See the difference our specialists make.",
       },
       {
         property: "og:title",
