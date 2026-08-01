@@ -9,7 +9,7 @@ export const Route = createFileRoute("/contact")({
       {
         name: "description",
         content:
-          "Schedule your visit to Sri Shobh Dental in Tukkuguda. Call 8686325269, WhatsApp, or book online. Same-day emergency appointments available. Mon-Sat 10AM-9PM.",
+          "Schedule your visit to Sri Shobh Dental in Tukkuguda. Call 8686325269, WhatsApp or book online. Same-day emergency appointments available. Mon-Sat 10AM-9PM.",
       },
       {
         property: "og:title",

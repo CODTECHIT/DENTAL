@@ -85,7 +85,7 @@ export const services = [
     desc: "Straighten teeth with braces or clear aligners.",
     img: sBraces,
     detailContent:
-      "We offer both traditional metal braces and clear aligner systems to correct crooked, crowded, or misaligned teeth. Metal braces remain the most effective solution for complex orthodontic cases, while clear aligners offer a discreet, removable alternative for mild to moderate corrections. Our orthodontist designs a custom treatment plan using digital scanning and 3D simulation, ensuring predictable, efficient results tailored to your lifestyle.",
+      "We offer both traditional metal braces and clear aligner systems to correct crooked, crowded or misaligned teeth. Metal braces remain the most effective solution for complex orthodontic cases, while clear aligners offer a discreet, removable alternative for mild to moderate corrections. Our orthodontist designs a custom treatment plan using digital scanning and 3D simulation, ensuring predictable, efficient results tailored to your lifestyle.",
   },
   {
     name: "Invisalign® Clear Aligners",
@@ -101,7 +101,7 @@ export const services = [
     desc: "Safe extraction by experienced specialists.",
     img: sWisdom,
     detailContent:
-      "Wisdom tooth removal is a common oral surgical procedure to extract one or more third molars that are impacted, partially erupted, or causing crowding, pain, or infection. Our oral surgeon performs the procedure under local anaesthesia or sedation for a completely comfortable experience. We use gentle techniques to minimise post-operative discomfort and provide detailed aftercare instructions for a smooth, speedy recovery.",
+      "Wisdom tooth removal is a common oral surgical procedure to extract one or more third molars that are impacted, partially erupted or causing crowding, pain or infection. Our oral surgeon performs the procedure under local anaesthesia or sedation for a completely comfortable experience. We use gentle techniques to minimise post-operative discomfort and provide detailed aftercare instructions for a smooth, speedy recovery.",
   },
   {
     name: "Pediatric Dentistry",
@@ -157,7 +157,7 @@ export const services = [
     desc: "Ultra-thin veneers for a beautiful smile.",
     img: sVeneer,
     detailContent:
-      "Dental veneers are ultra-thin, custom-made shells of tooth-coloured ceramic bonded to the front surface of teeth to correct discolouration, chips, gaps, misshapen, or slightly misaligned teeth. Our veneers are crafted from high-quality ceramic with natural translucency, requiring minimal tooth preparation. The result is a flawless, radiant smile that looks completely natural. With proper care, veneers can last 10-15 years or more.",
+      "Dental veneers are ultra-thin, custom-made shells of tooth-coloured ceramic bonded to the front surface of teeth to correct discolouration, chips, gaps, misshapen or slightly misaligned teeth. Our veneers are crafted from high-quality ceramic with natural translucency, requiring minimal tooth preparation. The result is a flawless, radiant smile that looks completely natural. With proper care, veneers can last 10-15 years or more.",
   },
   {
     name: "Preventive & General Dentistry",
@@ -165,7 +165,7 @@ export const services = [
     desc: "Routine check-ups, cleanings & preventive care.",
     img: sPreventive,
     detailContent:
-      "Preventive dentistry is the foundation of lifelong oral health. Our comprehensive exams include digital X-rays, oral cancer screening, periodontal evaluation and professional cleaning to remove plaque and tartar. We provide personalised oral hygiene education, dietary counselling, fluoride treatments and sealants. Regular six-month visits allow early detection of issues before they become complex, saving you time, discomfort and expense.",
+      "Preventive dentistry is the foundation of lifelong oral health. Our comprehensive exams include digital X-rays oral cancer screening, periodontal evaluation and professional cleaning to remove plaque and tartar. We provide personalised oral hygiene education, dietary counselling, fluoride treatments and sealants. Regular six-month visits allow early detection of issues before they become complex, saving you time, discomfort and expense.",
   },
 ];
 

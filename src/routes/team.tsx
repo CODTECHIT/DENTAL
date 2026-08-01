@@ -9,7 +9,7 @@ export const Route = createFileRoute("/team")({
       {
         name: "description",
         content:
-          "7 MDS specialists under one roof in Tukkuguda  prosthodontist, endodontist, orthodontist, periodontist, pedodontist, oral surgeon & radiologist. Expert dental care for your smile.",
+          "7 MDS specialists under one roof in Tukkuguda  prosthodontist, endodontist orthodontist, periodontist, pedodontist oral surgeon & radiologist. Expert dental care for your smile.",
       },
       { property: "og:title", content: "Meet Our Dental Specialists | 7 MDS Doctors in Tukkuguda" },
       {
