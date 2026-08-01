@@ -217,6 +217,37 @@ export const navLinks = [
   { to: "/contact", label: "Contact" },
 ] as const;
 
+export const faqs = [
+  {
+    q: "Which is the best dental clinic in Tukkuguda?",
+    a: "Sri Shobh Dental & Implant Centre is a leading dental clinic in Tukkuguda, Maheshwaram, Hyderabad. It is led by 7 MDS dental specialists and offers dental implants, root canal treatment, Invisalign, braces, smile designing and emergency dental care. Located beside HP Petrol Bunk, opposite JK Supermarket on Srisailam Highway, Tukkuguda. Call 86863 25269 to book an appointment.",
+  },
+  {
+    q: "Does Sri Shobh Dental provide emergency dental care in Tukkuguda?",
+    a: "Yes. Sri Shobh Dental & Implant Centre offers same-day emergency dental appointments in Tukkuguda for severe toothache, knocked-out teeth, dental fractures, abscesses and facial swelling. Call 86863 25269 for immediate help.",
+  },
+  {
+    q: "What is the cost of a root canal treatment in Tukkuguda?",
+    a: "Root canal treatment cost at Sri Shobh Dental & Implant Centre depends on the tooth type and the crown you choose. Prices are transparent and affordable. Call 86863 25269 or WhatsApp for an accurate estimate after a consultation and X-ray.",
+  },
+  {
+    q: "Are dental implants available at Sri Shobh Dental, Tukkuguda?",
+    a: "Yes. Sri Shobh Dental & Implant Centre is a prosthodontist-led implant centre offering single-tooth, multiple-tooth and full-arch dental implants with advanced surgical and restorative protocols.",
+  },
+  {
+    q: "Do you offer Invisalign and clear aligners in Tukkuguda?",
+    a: "Yes. The clinic offers Invisalign and other clear aligner systems with digital scanning and 3D treatment simulation by MDS orthodontists.",
+  },
+  {
+    q: "What are the opening hours of Sri Shobh Dental?",
+    a: "Sri Shobh Dental & Implant Centre is open Monday to Saturday from 10:00 AM to 9:00 PM. Sunday timing is by appointment. Please call 86863 25269 to confirm.",
+  },
+  {
+    q: "Do you treat children at Sri Shobh Dental, Tukkuguda?",
+    a: "Yes. Our pedodontist (child dental specialist) Dr. Geeta Mamilla provides gentle pediatric dentistry including check-ups, fluoride treatment, pit & fissure sealants, pediatric root canals and habit-breaking appliances.",
+  },
+];
+
 export const specialists = [
   {
     name: "Dr. Sai Akhil Khadkekar",

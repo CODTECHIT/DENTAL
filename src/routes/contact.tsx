@@ -21,6 +21,15 @@ export const Route = createFileRoute("/contact")({
           "Reach Tukkuguda's trusted specialist dental clinic. Call, WhatsApp, email or visit. Same-day appointments available.",
       },
       { property: "og:url", content: "https://shobhdental.com/contact" },
+      { property: "og:image", content: "https://shobhdental.com/og-image.png" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Book Appointment | Dentist in Tukkuguda | Sri Shobh Dental" },
+      {
+        name: "twitter:description",
+        content:
+          "Reach Tukkuguda's trusted specialist dental clinic. Call, WhatsApp, email or visit. Same-day appointments available.",
+      },
+      { name: "twitter:image", content: "https://shobhdental.com/og-image.png" },
     ],
     links: [{ rel: "canonical", href: "https://shobhdental.com/contact" }],
   }),

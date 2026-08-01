@@ -99,7 +99,7 @@ export function MobileActionBar() {
       href: `https://maps.google.com/?q=${encodeURIComponent(ADDRESS_FULL)}` as const,
       ext: true,
     },
-  ];
+  ] as const;
   return (
     <div className="md:hidden fixed bottom-0 inset-x-0 z-40 bg-white border-t border-border shadow-[0_-8px_24px_-12px_rgba(0,0,0,0.15)]">
       <div className="grid grid-cols-4">
@@ -108,7 +108,7 @@ export function MobileActionBar() {
             <Link
               key={it.label}
               to={it.to}
-              className={`flex flex-col items-center justify-center gap-1 py-2.5 text-[10px] font-semibold ${it.primary ? "bg-gradient-gold text-white" : "text-ink"}`}
+              className={`flex flex-col items-center justify-center gap-1 py-2.5 text-[10px] font-semibold ${it.primary ? "btn-book text-white" : "text-ink"}`}
             >
               <it.icon className="w-4 h-4" />
               <span className="text-center leading-tight">{it.label}</span>

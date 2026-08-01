@@ -29,6 +29,15 @@ export const Route = createFileRoute("/about")({
           "Our philosophy: precision, legacy of trust and the highest standard of specialist dental care in Tukkuguda.",
       },
       { property: "og:url", content: "https://shobhdental.com/about" },
+      { property: "og:image", content: "https://shobhdental.com/og-image.png" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "About Sri Shobh Dental | Top Dentists in Tukkuguda, Hyderabad" },
+      {
+        name: "twitter:description",
+        content:
+          "Meet Tukkuguda's most trusted dental specialists - 7 MDS doctors, advanced technology, ethical care.",
+      },
+      { name: "twitter:image", content: "https://shobhdental.com/og-image.png" },
     ],
     links: [{ rel: "canonical", href: "https://shobhdental.com/about" }],
   }),

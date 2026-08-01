@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { Fragment, useEffect, useRef, useState, type ReactNode } from "react";
 import { Link } from "@tanstack/react-router";
 import {
   Phone,
@@ -30,11 +30,95 @@ import {
   highlights,
   galleryImgs,
   specialists,
+  faqs,
   GalleryItem,
 } from "./data";
 import { Counter, useTilt } from "./hooks";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 /* ---------------- HERO ---------------- */
+
+type HeroSegment = { text: string; cls?: string; br?: boolean };
+
+const HERO_SEGMENTS: HeroSegment[] = [
+  { text: "Expert Dental Care", br: true },
+  { text: "in " },
+  { text: "Tukkuguda", cls: "text-gold" },
+  { text: " ", br: true },
+  { text: "perfecting harmony", br: true },
+  { text: "and confidence in", br: true },
+  { text: "every radiant " },
+  { text: "smile.", cls: "italic-accent text-gold" },
+];
+
+function useTypewriter(totalLength: number, speed = 38, delay = 400) {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    if (totalLength === 0) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setCount(totalLength);
+      return;
+    }
+    let i = 0;
+    let interval: ReturnType<typeof setInterval> | undefined;
+    const start = setTimeout(() => {
+      setCount(1);
+      interval = setInterval(() => {
+        i += 1;
+        setCount(i);
+        if (i >= totalLength && interval) clearInterval(interval);
+      }, speed);
+    }, delay);
+    return () => {
+      clearTimeout(start);
+      if (interval) clearInterval(interval);
+    };
+  }, [totalLength, speed, delay]);
+
+  return count;
+}
+
+function HeroHeading() {
+  const totalLength = HERO_SEGMENTS.reduce((n, s) => n + s.text.length, 0);
+  const typed = useTypewriter(totalLength);
+  let remaining = typed;
+  const nodes: ReactNode[] = [];
+
+  for (let i = 0; i < HERO_SEGMENTS.length && remaining > 0; i++) {
+    const seg = HERO_SEGMENTS[i];
+    const take = Math.min(remaining, seg.text.length);
+    remaining -= take;
+    const part = seg.text.slice(0, take);
+    const span = (
+      <span key={i} className={seg.cls}>
+        {part}
+      </span>
+    );
+    if (seg.br && take === seg.text.length) {
+      nodes.push(
+        <Fragment key={`r${i}`}>
+          {span}
+          <br className="hidden sm:block" />
+        </Fragment>,
+      );
+    } else {
+      nodes.push(span);
+    }
+  }
+
+  return (
+    <h1 className="font-display font-medium text-4xl sm:text-6xl md:text-7xl xl:text-[5rem] leading-[1.08] sm:leading-[1.03] text-white drop-shadow-lg">
+      {nodes}
+    </h1>
+  );
+}
+
 export function Hero() {
   return (
     <section id="home" className="relative bg-ink text-white">
@@ -67,17 +151,11 @@ export function Hero() {
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-gold" />
               </span>
               <span className="font-semibold tracking-wide uppercase text-[11px] sm:text-xs">
-                Excellence in Dentistry  Tukkuguda
+                Excellence in Dentistry Tukkuguda
               </span>
             </div>
 
-            <h1 className="font-display font-medium text-4xl sm:text-6xl md:text-7xl xl:text-[5rem] leading-[1.08] sm:leading-[1.03] text-white drop-shadow-lg">
-              Expert Dental Care <br className="hidden sm:block" />
-              in <span className="text-gold">Tukkuguda</span>  <br className="hidden sm:block" />
-              perfecting harmony <br className="hidden sm:block" />
-              and confidence in <br className="hidden sm:block" />
-              every radiant <span className="italic-accent text-gold">smile.</span>
-            </h1>
+            <HeroHeading />
 
             <p className="mt-5 sm:mt-8 max-w-xl text-white/90 text-sm sm:text-lg md:text-xl leading-relaxed font-light drop-shadow">
               Advanced, specialist-driven dental care in Tukkuguda where craftsmanship meets modern
@@ -636,7 +714,7 @@ export function Gallery({ limit }: { limit?: number } = {}) {
               )}
               <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
               <div className="absolute bottom-3.5 left-4 text-white text-xs sm:text-sm font-semibold opacity-0 group-hover:opacity-100 transition-opacity drop-shadow">
-                Sri Shobh Dental  Tukkuguda
+                Sri Shobh Dental Tukkuguda
               </div>
             </button>
           ))}
@@ -747,6 +825,40 @@ export function Testimonials() {
               />
             ))}
           </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ---------------- FAQ ---------------- */
+export function Faq() {
+  return (
+    <section className="py-14 sm:py-20 bg-white">
+      <div className="max-w-3xl mx-auto px-4 sm:px-6">
+        <div className="text-center reveal">
+          <div className="eyebrow justify-center">Common Questions</div>
+          <h2 className="mt-4 font-display font-medium text-3xl sm:text-4xl md:text-5xl text-ink leading-tight">
+            Dental FAQs <span className="italic-accent">patients ask</span> in Tukkuguda
+          </h2>
+          <p className="mt-3 text-sm sm:text-base text-muted-foreground">
+            Answers about treatments, timings, costs and emergencies at Sri Shobh Dental & Implant
+            Centre.
+          </p>
+        </div>
+        <div className="mt-10 reveal">
+          <Accordion type="single" collapsible className="w-full">
+            {faqs.map((f, i) => (
+              <AccordionItem key={f.q} value={`faq-${i}`}>
+                <AccordionTrigger className="text-left font-medium text-base">
+                  {f.q}
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground leading-relaxed">
+                  {f.a}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
         </div>
       </div>
     </section>
@@ -954,9 +1066,7 @@ export function Team() {
                     {doc.role}
                     {/* @ts-ignore */}
                     {doc.subtitle && (
-                      <span className="text-ink/60 italic font-normal ml-1">
-                        ({doc.subtitle})
-                      </span>
+                      <span className="text-ink/60 italic font-normal ml-1">({doc.subtitle})</span>
                     )}
                   </div>
                   <div className="text-xs uppercase tracking-widest text-gold-dark mt-5 mb-2 font-semibold">

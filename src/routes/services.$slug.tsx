@@ -38,6 +38,17 @@ export const Route = createFileRoute("/services/$slug")({
         },
         { property: "og:description", content: meta?.description ?? "" },
         { property: "og:url", content: `https://shobhdental.com/services/${params.slug}` },
+        { property: "og:image", content: "https://shobhdental.com/og-image.png" },
+        {
+          name: "twitter:card",
+          content: "summary_large_image",
+        },
+        {
+          name: "twitter:title",
+          content: meta?.title ?? `${service?.name ?? "Service"} in Tukkuguda`,
+        },
+        { name: "twitter:description", content: meta?.description ?? "" },
+        { name: "twitter:image", content: "https://shobhdental.com/og-image.png" },
       ],
       links: [{ rel: "canonical", href: `https://shobhdental.com/services/${params.slug}` }],
     };
@@ -52,13 +63,18 @@ function ServiceDetailPage() {
 
   const serviceSchema = {
     "@context": "https://schema.org",
-    "@type": "MedicalService",
-    name: service.name,
+    "@type": "MedicalProcedure",
+    "@id": `https://shobhdental.com/services/${slug}#procedure`,
+    name: `${service.name} in Tukkuguda`,
     description: service.detailContent?.split(".")[0] + ".",
+    procedureType: "https://schema.org/MedicalProcedure",
+    bodyLocation: "Oral cavity",
+    medicalSpecialty: "Dentistry",
     provider: {
       "@type": "Dentist",
+      "@id": "https://shobhdental.com/#dentist",
       name: "Sri Shobh Dental & Implant Centre",
-      url: "https://shobhdental.com",
+      url: "https://shobhdental.com/",
     },
     areaServed: { "@type": "City", name: "Tukkuguda" },
     url: `https://shobhdental.com/services/${slug}`,
@@ -84,7 +100,7 @@ function ServiceDetailPage() {
           <div className="aspect-video rounded-2xl overflow-hidden bg-ink/5 mb-10">
             <img
               src={service.img}
-              alt={service.name}
+              alt={`${service.name} in Tukkuguda | Sri Shobh Dental & Implant Centre`}
               width={800}
               height={600}
               className="w-full h-full object-cover"

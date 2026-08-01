@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useRouterState } from "@tanstack/react-router";
-import { Phone, MessageCircle, Mail, MapPin, Calendar, Menu, X } from "lucide-react";
-import { PHONE, WHATSAPP, EMAIL, ADDRESS_SHORT, navLinks } from "./data";
+import { Phone, MessageCircle, Mail, MapPin, Calendar, Menu, X, ChevronDown } from "lucide-react";
+import { PHONE, WHATSAPP, EMAIL, ADDRESS_SHORT, navLinks, services } from "./data";
 
 function TopBar() {
   return (
@@ -39,6 +39,7 @@ function TopBar() {
 
 export function Header() {
   const [open, setOpen] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const pathname = useRouterState({ select: (s) => s.location.pathname });
 
@@ -51,6 +52,7 @@ export function Header() {
 
   useEffect(() => {
     setOpen(false);
+    setServicesOpen(false);
   }, [pathname]);
 
   return (
@@ -69,22 +71,69 @@ export function Header() {
           </Link>
 
           <nav className="hidden lg:flex items-center gap-7">
-            {navLinks.map((l) => (
-              <Link
-                key={l.to}
-                to={l.to}
-                activeOptions={{ exact: true }}
-                className="text-sm font-semibold text-ink/80 hover:text-gold transition-colors relative after:content-[''] after:absolute after:left-0 after:-bottom-1.5 after:h-[3px] after:rounded after:bg-gold after:transition-all after:w-0 hover:after:w-full data-[status=active]:text-gold data-[status=active]:after:w-full"
-              >
-                {l.label}
-              </Link>
-            ))}
+            {navLinks.map((l) =>
+              l.to === "/services" ? (
+                <div
+                  key={l.to}
+                  className="relative"
+                  onMouseEnter={() => setServicesOpen(true)}
+                  onMouseLeave={() => setServicesOpen(false)}
+                >
+                  <Link
+                    to="/services"
+                    activeOptions={{ exact: true }}
+                    className="group flex items-center gap-1.5 text-sm font-semibold text-ink/80 hover:text-gold transition-colors relative after:content-[''] after:absolute after:left-0 after:-bottom-1.5 after:h-[3px] after:rounded after:bg-gold after:transition-all after:w-0 hover:after:w-full data-[status=active]:text-gold data-[status=active]:after:w-full"
+                  >
+                    {l.label}
+                    <ChevronDown
+                      className={`w-3.5 h-3.5 transition-transform ${servicesOpen ? "rotate-180" : ""}`}
+                    />
+                  </Link>
+                  {servicesOpen && (
+                    <div className="absolute left-0 top-full pt-3 z-50">
+                      <div className="w-80 max-w-[calc(100vw-2rem)] max-h-[70vh] overflow-y-auto bg-white rounded-2xl border-[2px] border-gold/30 p-2 shadow-gold animate-in fade-in-0 zoom-in-95 slide-in-from-top-2 duration-200">
+                        <div className="text-xs uppercase tracking-widest text-gold-dark font-semibold px-3 py-2">
+                          Our Services
+                        </div>
+                        <div className="h-px bg-border my-1" />
+                        {services.map((s) => (
+                          <Link
+                            key={s.slug}
+                            to="/services/$slug"
+                            params={{ slug: s.slug }}
+                            className="block py-2 px-3 rounded-lg text-sm font-medium text-ink/80 hover:bg-gold-soft hover:text-gold-dark"
+                          >
+                            {s.name}
+                          </Link>
+                        ))}
+                        <div className="h-px bg-border my-1" />
+                        <Link
+                          to="/services"
+                          className="block text-center py-2 px-3 rounded-lg text-sm font-semibold text-gold hover:bg-gold-soft"
+                        >
+                          View all services →
+                        </Link>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              ) : (
+                <Link
+                  key={l.to}
+                  to={l.to}
+                  activeOptions={{ exact: true }}
+                  className="text-sm font-semibold text-ink/80 hover:text-gold transition-colors relative after:content-[''] after:absolute after:left-0 after:-bottom-1.5 after:h-[3px] after:rounded after:bg-gold after:transition-all after:w-0 hover:after:w-full data-[status=active]:text-gold data-[status=active]:after:w-full"
+                >
+                  {l.label}
+                </Link>
+              ),
+            )}
           </nav>
 
           <div className="flex items-center justify-end gap-2 justify-self-end lg:justify-self-auto">
             <Link
               to="/contact"
-              className="hidden sm:inline-flex items-center gap-2 bg-gradient-gold text-white font-medium text-sm px-5 py-2.5 rounded-full shadow-gold hover:scale-105 transition-transform"
+              className="btn-book hidden sm:inline-flex items-center gap-2 text-white font-semibold text-sm px-5 py-2.5 rounded-full border-2 border-gold/40"
             >
               <Calendar className="w-4 h-4" /> Book Appointment
             </Link>
@@ -104,16 +153,51 @@ export function Header() {
         {open && (
           <div className="lg:hidden border-t border-border bg-white animate-reveal">
             <div className="px-4 py-3 flex flex-col gap-1">
-              {navLinks.map((l) => (
-                <Link
-                  key={l.to}
-                  to={l.to}
-                  activeOptions={{ exact: true }}
-                  className="px-3 py-2.5 rounded-md text-sm font-medium hover:bg-gold-soft data-[status=active]:bg-gold-soft data-[status=active]:text-gold-dark"
-                >
-                  {l.label}
-                </Link>
-              ))}
+              {navLinks.map((l) =>
+                l.to === "/services" ? (
+                  <div key={l.to}>
+                    <button
+                      onClick={() => setServicesOpen(!servicesOpen)}
+                      aria-expanded={servicesOpen}
+                      className="w-full flex items-center justify-between px-3 py-2.5 rounded-md text-sm font-medium hover:bg-gold-soft"
+                    >
+                      <span>{l.label}</span>
+                      <ChevronDown
+                        className={`w-4 h-4 transition-transform ${servicesOpen ? "rotate-180" : ""}`}
+                      />
+                    </button>
+                    {servicesOpen && (
+                      <div className="ml-3 pl-3 border-l-2 border-gold/30 mt-1 flex flex-col gap-0.5 animate-reveal">
+                        {services.map((s) => (
+                          <Link
+                            key={s.slug}
+                            to="/services/$slug"
+                            params={{ slug: s.slug }}
+                            className="px-3 py-2 rounded-md text-sm text-ink/80 hover:bg-gold-soft hover:text-gold-dark"
+                          >
+                            {s.name}
+                          </Link>
+                        ))}
+                        <Link
+                          to="/services"
+                          className="px-3 py-2 rounded-md text-sm font-semibold text-gold hover:bg-gold-soft"
+                        >
+                          View all services
+                        </Link>
+                      </div>
+                    )}
+                  </div>
+                ) : (
+                  <Link
+                    key={l.to}
+                    to={l.to}
+                    activeOptions={{ exact: true }}
+                    className="px-3 py-2.5 rounded-md text-sm font-medium hover:bg-gold-soft data-[status=active]:bg-gold-soft data-[status=active]:text-gold-dark"
+                  >
+                    {l.label}
+                  </Link>
+                ),
+              )}
             </div>
           </div>
         )}

@@ -13,6 +13,7 @@ import { useEffect, useState, type ReactNode } from "react";
 import appCss from "../styles.css?url";
 import { Header } from "@/components/site/Header";
 import { Footer, MobileActionBar } from "@/components/site/Footer";
+import { services } from "@/components/site/data";
 import {
   ScrollProgress,
   FloatingPhone,
@@ -101,6 +102,20 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "Best dental clinic in Tukkuguda, Hyderabad  implants, RCT, Invisalign & more by MDS specialists.",
       },
       { name: "twitter:image", content: "https://shobhdental.com/og-image.png" },
+      { name: "twitter:image:alt", content: "Sri Shobh Dental & Implant Centre — best dental clinic in Tukkuguda" },
+      { name: "robots", content: "index, follow, max-image-preview:large" },
+      { name: "geo.region", content: "IN-TG" },
+      { name: "geo.placename", content: "Tukkuguda, Maheshwaram, Hyderabad" },
+      { name: "geo.position", content: "17.2408;78.2939" },
+      { name: "ICBM", content: "17.2408, 78.2939" },
+      { name: "format-detection", content: "telephone=yes" },
+      { name: "theme-color", content: "#c2a455" },
+      { property: "og:site_name", content: "Sri Shobh Dental & Implant Centre" },
+      { property: "og:locale", content: "en_IN" },
+      {
+        name: "google-site-verification",
+        content: "v8-B20dqZ7IMsYdlR8DBr5mmRJ-2wkRXpzSHVUxKMCs",
+      },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
@@ -113,6 +128,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         href: "https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap",
       },
     ],
+    scripts: [
+      {
+        src: "https://www.googletagmanager.com/gtag/js?id=G-XR4NNVG72C",
+        async: true,
+      },
+      {
+        children: `window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-XR4NNVG72C');`,
+      },
+    ],
   }),
   shellComponent: RootShell,
   component: RootComponent,
@@ -122,7 +149,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en-IN">
       <head>
         <HeadContent />
       </head>
@@ -177,35 +204,95 @@ function OpeningAnimation() {
 
 const ldJson = {
   "@context": "https://schema.org",
-  "@type": "Dentist",
-  "@id": "https://shobhdental.com",
-  name: "Sri Shobh Dental & Implant Centre",
-  image: "https://shobhdental.com/logo.jpg",
-  url: "https://shobhdental.com",
-  telephone: "+918686325269",
-  email: "srishobhdental@gmail.com",
-  description:
-    "Best dental clinic in Tukkuguda, Hyderabad. MDS specialists in implants, RCT, Invisalign, smile design & laser dentistry.",
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: "First Floor, Srisailam Highway beside HP Petrol Bunk, Tukkuguda",
-    addressLocality: "Maheshwaram",
-    addressRegion: "Telangana",
-    postalCode: "501359",
-    addressCountry: "IN",
-  },
-  geo: { "@type": "GeoCoordinates", latitude: "17.3062", longitude: "78.5501" },
-  openingHoursSpecification: [
+  "@graph": [
     {
-      "@type": "OpeningHoursSpecification",
-      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-      opens: "10:00",
-      closes: "21:00",
+      "@type": ["Dentist", "MedicalBusiness", "LocalBusiness"],
+      "@id": "https://shobhdental.com/#dentist",
+      name: "Sri Shobh Dental & Implant Centre",
+      alternateName: "Sri Shobh Dental",
+      image: "https://shobhdental.com/og-image.png",
+      logo: "https://shobhdental.com/logo.jpg",
+      url: "https://shobhdental.com/",
+      telephone: "+918686325269",
+      email: "srishobhdental@gmail.com",
+      description:
+        "Best dental clinic in Tukkuguda, Maheshwaram, Hyderabad. MDS specialists in dental implants, root canal treatment, Invisalign, braces, smile designing, teeth whitening and laser dentistry.",
+      slogan: "Advanced, ethical & patient-centred dental care",
+      priceRange: "₹₹",
+      currenciesAccepted: "INR",
+      paymentAccepted: "Cash, UPI, Credit Card, Debit Card, Net Banking",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "First Floor, Srisailam Highway beside HP Petrol Bunk, Tukkuguda",
+        addressLocality: "Tukkuguda",
+        addressRegion: "Telangana",
+        postalCode: "501359",
+        addressCountry: "IN",
+      },
+      geo: { "@type": "GeoCoordinates", latitude: 17.2408, longitude: 78.2939 },
+      hasMap: "https://www.google.com/maps/search/Sri+Shobh+Dental+Tukkuguda",
+      areaServed: [
+        { "@type": "City", name: "Tukkuguda" },
+        { "@type": "City", name: "Maheshwaram" },
+        { "@type": "City", name: "Adibatla" },
+        { "@type": "City", name: "Shamshabad" },
+        { "@type": "City", name: "LB Nagar" },
+        { "@type": "City", name: "Hyderabad" },
+      ],
+      openingHoursSpecification: [
+        {
+          "@type": "OpeningHoursSpecification",
+          dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+          opens: "10:00",
+          closes: "21:00",
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          dayOfWeek: "Sunday",
+          opens: "10:00",
+          closes: "14:00",
+        },
+      ],
+      founder: { "@type": "Person", "@id": "https://shobhdental.com/#dr-akhil" },
+      employee: [
+        { "@type": "Person", name: "Dr. Sai Akhil Khadkekar", jobTitle: "Prosthodontist & Implantologist" },
+        { "@type": "Person", name: "Dr. Ishitha", jobTitle: "Endodontist" },
+        { "@type": "Person", name: "Dr. Shiva Prasad", jobTitle: "Periodontist & Oral Implantologist" },
+        { "@type": "Person", name: "Dr. Abhiram", jobTitle: "Orthodontist" },
+        { "@type": "Person", name: "Dr. Geeta Mamilla", jobTitle: "Pedodontist" },
+        { "@type": "Person", name: "Dr. Santosh Vemulapalli", jobTitle: "Oral & Maxillofacial Surgeon" },
+        { "@type": "Person", name: "Dr. Hemanth", jobTitle: "Oral Medicine & Radiologist" },
+      ],
+      medicalSpecialty: [
+        "Prosthodontics",
+        "Endodontics",
+        "Periodontics",
+        "Orthodontics",
+        "PediatricDentistry",
+        "OralSurgery",
+        "Implantology",
+        "CosmeticDentistry",
+      ],
+      availableService: services.map((s) => ({
+        "@type": "MedicalProcedure",
+        name: s.name,
+      })),
     },
-    { "@type": "OpeningHoursSpecification", dayOfWeek: "Sunday", opens: "10:00", closes: "14:00" },
+    {
+      "@type": "Person",
+      "@id": "https://shobhdental.com/#dr-akhil",
+      name: "Dr. Sai Akhil Khadkekar",
+      jobTitle: "Prosthodontist & Implantologist, Clinic Founder",
+      worksFor: { "@id": "https://shobhdental.com/#dentist" },
+      knowsAbout: [
+        "Dental Implants",
+        "Full Mouth Rehabilitation",
+        "Smile Designing",
+        "Zirconia & Ceramic Crowns",
+        "Implant-Supported Prostheses",
+      ],
+    },
   ],
-  priceRange: "₹₹",
-  medicalSpecialty: "Dentistry",
 };
 
 function SiteLayout() {

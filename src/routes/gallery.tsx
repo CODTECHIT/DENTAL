@@ -21,6 +21,15 @@ export const Route = createFileRoute("/gallery")({
           "Real dental transformations from Tukkuguda's trusted clinic. Smile designs, implants, whitening & more.",
       },
       { property: "og:url", content: "https://shobhdental.com/gallery" },
+      { property: "og:image", content: "https://shobhdental.com/og-image.png" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Smile Gallery | Before & After Dental Treatments in Tukkuguda" },
+      {
+        name: "twitter:description",
+        content:
+          "Real dental transformations from Tukkuguda's trusted clinic. Smile designs, implants, whitening & more.",
+      },
+      { name: "twitter:image", content: "https://shobhdental.com/og-image.png" },
     ],
     links: [{ rel: "canonical", href: "https://shobhdental.com/gallery" }],
   }),
