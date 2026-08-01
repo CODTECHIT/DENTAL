@@ -108,10 +108,10 @@ export function Hero() {
       <div className="relative bg-ink border-t border-white/10 z-20">
         <div className="max-w-7xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4">
           {[
-            { n: 10, s: "+", l: "Months Serving Tukkuguda" },
+            { n: 1, s: "+", l: "years Serving Tukkuguda" },
             { n: 15, s: "+", l: "Specialist Services" },
             { n: 1000, s: "+", l: "Smiles Cared For" },
-            { n: 4, s: ".7", l: "Patient Rating" },
+            { n: 4, s: ".8", l: "Patient Rating" },
           ].map((s, i) => (
             <div
               key={s.l}
