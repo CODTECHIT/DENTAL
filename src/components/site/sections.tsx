@@ -104,7 +104,7 @@ function HeroHeading() {
       nodes.push(
         <Fragment key={`r${i}`}>
           {span}
-          <br className="hidden sm:block" />
+          <br />
         </Fragment>,
       );
     } else {
@@ -113,7 +113,7 @@ function HeroHeading() {
   }
 
   return (
-    <h1 className="font-display font-medium text-4xl sm:text-6xl md:text-7xl xl:text-[5rem] leading-[1.08] sm:leading-[1.03] text-white drop-shadow-lg">
+    <h1 className="font-display font-medium text-4xl sm:text-6xl md:text-7xl xl:text-[5rem] leading-[1.18] sm:leading-[1.03] text-white drop-shadow-lg">
       {nodes}
     </h1>
   );
