@@ -111,7 +111,7 @@ export function Hero() {
             { n: 1, s: "+", l: "years Serving Tukkuguda" },
             { n: 15, s: "+", l: "Specialist Services" },
             { n: 1000, s: "+", l: "Smiles Cared For" },
-            { n: 4, s: ".8", l: "Patient Rating" },
+            { n: 4, s: ".8+", l: "Patient Rating" },
           ].map((s, i) => (
             <div
               key={s.l}
